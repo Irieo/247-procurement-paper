@@ -548,12 +548,37 @@ def objective_abs():
                 transparent=True)
 
 
+def system_emisrate():
+
+    fig, ax = plt.subplots()
+    fig.set_size_inches((6,4.5))
+
+    ldf = df.loc['system_emission_rate']
+    ldf.index = ldf.index.map(rename_scen)
+
+    #Drop reference scenario before plotting
+    ldf.drop(ldf.index[0], inplace=True)
+
+    ldf.plot(kind="bar", ax=ax,
+        color='#33415c', width=0.65, edgecolor = "black", linewidth=0.05)
+ 
+    plt.xticks(rotation=0)
+    ax.grid(alpha=0.3)
+    ax.set_axisbelow(True)
+    #ax.set_xlabel("CFE target")
+    ax.set_ylabel("System emission rate [t/MWh]")
+    #ax.yaxis.label.set_size(6)
+
+    fig.tight_layout()
+    fig.savefig(snakemake.output.used.replace("used.pdf","system_emisrate.pdf"),
+                transparent=True)
+
 
 if __name__ == "__main__":
     # Detect running outside of snakemake and mock snakemake for testing
     if 'snakemake' not in globals():
         from _helpers import mock_snakemake
-        snakemake = mock_snakemake('plot_summary', palette='p3', zone='DK', year='2030', participation='10')   
+        snakemake = mock_snakemake('plot_summary', palette='p1', zone='IE', year='2025', participation='10')   
 
     #Windcards & Settings
     tech_palette = snakemake.wildcards.palette
@@ -665,9 +690,11 @@ if __name__ == "__main__":
 
     #system
     zone_emissions()
-    #system_emissions()
+    system_emissions()
+    system_emisrate()
     system_capacity()
     #objective_abs()
+
     
     #diffs to reference case
     #objective_rel()
