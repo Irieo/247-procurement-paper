@@ -695,6 +695,44 @@ def solve_network(n, policy, penetration, tech_palette):
         n.model.add_constraints(lhs == target*total_load, name="country_res_constraints")
 
 
+    def country_res_constraints_incl(n):
+        """
+        An alternative version of the constraint: corporate PPA are counted within the national RES targets 
+        """
+
+        # Local zone: RES + biomass + hydro)
+        grid_buses = n.buses.index[n.buses.location.isin(geoscope(zone, area)['country_nodes'])]
+        grid_res_techs = snakemake.config['global']['grid_res_techs']
+        grid_loads = n.loads.index[n.loads.bus.isin(grid_buses)]
+
+        country_res_gens = n.generators.index[n.generators.bus.isin(grid_buses) & n.generators.carrier.isin(grid_res_techs)]
+        country_res_links = n.links.index[n.links.bus1.isin(grid_buses) & n.links.carrier.isin(grid_res_techs)]
+        country_res_storage_units = n.storage_units.index[n.storage_units.bus.isin(grid_buses) & n.storage_units.carrier.isin(grid_res_techs)]
+
+        # CI bus in local zone: RES only
+        ci_bus = n.buses.index[n.buses.index.str.contains(f'{name}')]
+        ci_res_techs = snakemake.config['ci']['res_techs']
+        ci_loads = n.loads.index[n.loads.bus.isin(ci_bus)]
+
+        ci_res_gens = n.generators.index[n.generators.bus.isin(ci_bus) & n.generators.carrier.isin(ci_res_techs)]
+
+        # Define constraint
+        weights = n.snapshot_weightings["generators"]
+        gens = n.model['Generator-p'].loc[:,country_res_gens] * weights
+        links = n.model['Link-p'].loc[:,country_res_links] * n.links.loc[country_res_links, "efficiency"] * weights
+        sus = n.model['StorageUnit-p_dispatch'].loc[:,country_res_storage_units] * weights
+        ci_gens = n.model['Generator-p'].loc[:,ci_res_gens] * weights
+
+        lhs = gens.sum() + sus.sum() + links.sum() + ci_gens.sum()
+
+        target = timescope(zone, year)["country_res_target"]
+        country_load = (n.loads_t.p_set[grid_loads].sum(axis=1)*weights).sum()
+        ci_load = (n.loads_t.p_set[ci_loads].sum(axis=1)*weights).sum()
+        total_load = country_load + ci_load
+
+        n.model.add_constraints(lhs == target*total_load, name="country_res_constraints")
+
+
     def add_battery_constraints(n):
         """
         Add constraint ensuring that charger = discharger:
@@ -715,7 +753,13 @@ def solve_network(n, policy, penetration, tech_palette):
     def extra_functionality(n, snapshots):
 
         add_battery_constraints(n)
-        country_res_constraints(n)
+        if snakemake.config['country_res_constraint'] == "default":
+            country_res_constraints(n)
+        elif snakemake.config['country_res_constraint']== "incl":
+            country_res_constraints_incl(n)
+        else: 
+            print(f"'zone' wildcard must be one of 'IE', 'DK', 'DE', 'NL'. Now is {zone}.")
+            sys.exit()
 
         if policy == "ref":
             print("no target set")
