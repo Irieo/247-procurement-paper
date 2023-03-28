@@ -274,15 +274,18 @@ def limit_resexp(n, year, snakemake):
     '''
     ratio = snakemake.config['global'][f'limit_res_exp_{year}']
 
-    fleet = n.generators.groupby([n.generators.bus.str[:2],
-                                  n.generators.carrier]).p_nom.sum()
+    mask = n.generators.index.str.contains('google', case=False)
+    system_gens = n.generators[~mask]
+
+    fleet = system_gens.groupby([system_gens.bus.str[:2],
+                                  system_gens.carrier]).p_nom.sum()
     fleet = fleet.rename(lambda x: x.split("-")[0], level=1).groupby(level=[0,1]).sum()
     ct_national_target = list(snakemake.config[f"res_target_{year}"].keys()) + ["EU"]
 
     fleet.drop(ct_national_target, errors="ignore", level=0, inplace=True)
 
-    # option to allow build out of carriers which are not build yet
-    # fleet[fleet==0] = 1
+    #option to allow build out of carriers which are not build yet
+    #fleet[fleet==0] = 1
     for ct, carrier in fleet.index:
         gen_i = ((n.generators.p_nom_extendable) & (n.generators.bus.str[:2]==ct)
                  & (n.generators.carrier.str.contains(carrier)))
@@ -835,7 +838,7 @@ if __name__ == "__main__":
         from _helpers import mock_snakemake
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         snakemake = mock_snakemake('solve_network', 
-                    policy="cfe100", palette='p1', zone='IE', year='2025', participation='10')
+                    policy="cfe100", palette='p1', zone='DE', year='2025', participation='10')
 
     logging.basicConfig(filename=snakemake.log.python, level=snakemake.config['logging_level'])
 
