@@ -731,7 +731,17 @@ def solve_network(n, policy, penetration, tech_palette):
         country_targets = snakemake.config[f"res_target_{year}"]
 
         for ct in country_targets.keys():
-            grid_buses = n.buses.index[(n.buses.index.str[:2]==ct)] #CI bus is not considered here!
+            
+            #If "default": do not count corporate PPA within local zone's RES target
+            if snakemake.config['country_res_constraint'] == "default":
+                grid_buses = n.buses.index[(n.buses.index.str[:2]==ct)] 
+            
+            #If "incl": count corporate PPA within local zone's RES target
+            elif snakemake.config['country_res_constraint'] == "incl":
+                if ct == zone:
+                    grid_buses = n.buses.index[(n.buses.index.str[:2]==ct) | (n.buses.index == f"{ci_name}")]
+                else:
+                    grid_buses = n.buses.index[(n.buses.index.str[:2]==ct)]
 
             if grid_buses.empty: continue
 
@@ -838,7 +848,7 @@ if __name__ == "__main__":
         from _helpers import mock_snakemake
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         snakemake = mock_snakemake('solve_network', 
-                    policy="cfe100", palette='p1', zone='DE', year='2025', participation='10')
+                    policy="cfe100", palette='p1', zone='DK', year='2025', participation='10')
 
     logging.basicConfig(filename=snakemake.log.python, level=snakemake.config['logging_level'])
 
