@@ -89,7 +89,7 @@ def geoscope(zone, area):
     return d
 
 
-def timescope(zone, year):
+def timescope(zone, year, snakemake):
     '''
     country_res_target -> value of national RES policy constraint for {year} and {zone}
     coal_phaseout -> countries that implement coal phase-out policy until {year}
@@ -97,20 +97,12 @@ def timescope(zone, year):
     costs_projection -> input file with technology costs for {year}
     '''
     
-    d = dict(); 
+    d = {}
 
     d['country_res_target'] = snakemake.config[f'res_target_{year}'][f'{zone}']
     d['coal_phaseout'] = snakemake.config[f'policy_{year}']
-
-    if year == '2030':
-        d['network_file']  = snakemake.input.network2030
-        d['costs_projection'] = snakemake.input.costs2030
-    elif year == '2025':
-        d['network_file']  = snakemake.input.network2025
-        d['costs_projection'] = snakemake.input.costs2025
-    else: 
-        print(f"'year' wildcard must be one of '2025', '2030'. Now is {year}.")
-        sys.exit()
+    d['network_file'] = snakemake.input[f"network{year}"]
+    d['costs_projection']  = snakemake.input[f"costs{year}"]
 
     return d
 
@@ -274,32 +266,27 @@ def shutdown_lineexp(n):
     n.links.loc[n.links.carrier=='DC', 'p_nom_extendable'] = False
 
 
-def limit_resexp(n, year):
+def limit_resexp(n, year, snakemake):
     '''
-    limit expansion of renewable technologies per zone and carrier type 
+    limit expansion of renewable technologies per zone and carrier type
     as a ratio of max increase to 2021 capacity fleet
     (additional to zonal place availability constraint)
     '''
-    name = snakemake.config['ci']['name']
     ratio = snakemake.config['global'][f'limit_res_exp_{year}']
-    node = geoscope(zone, area)['node']
 
-    res = n.generators[(~n.generators.index.str.contains('EU')) & (~n.generators.index.str.contains(name)) & (~n.generators.index.str.contains(f'{node}'))]
-    fleet = res[res.p_nom_extendable==False]
+    fleet = n.generators.groupby([n.generators.bus.str[:2],
+                                  n.generators.carrier]).p_nom.sum()
+    fleet = fleet.rename(lambda x: x.split("-")[0], level=1).groupby(level=[0,1]).sum()
+    ct_national_target = list(snakemake.config[f"res_target_{year}"].keys()) + ["EU"]
 
-    #fleet.groupby([fleet.carrier, fleet.bus]).p_nom.sum()
-    off_c = fleet[fleet.index.str.contains('offwind')].carrier + '-' + \
-            fleet[fleet.index.str.contains('offwind')].index.str.extract('(ac)|(dc)').fillna('').sum(axis=1).values
-    
-    fleet["carrier_s"] = off_c.reindex(fleet.index).fillna(fleet.carrier)
+    fleet.drop(ct_national_target, errors="ignore", level=0, inplace=True)
 
-    for bus in fleet.bus.unique():
-        for carrier in ['solar', 'onwind', 'offwind-ac', 'offwind-dc']:
-            p_nom_fleet = 0
-            p_nom_fleet = fleet.loc[(fleet.bus == bus) & (fleet.carrier_s == carrier), "p_nom"].sum()
-            #print(f'bus: {bus}, carrier: {carrier}' ,p_nom_fleet)
-            n.generators.loc[(n.generators.p_nom_extendable==True) & (n.generators.bus == bus) & \
-                             (n.generators.carrier == carrier), "p_nom_max"] = ratio * p_nom_fleet
+    # option to allow build out of carriers which are not build yet
+    # fleet[fleet==0] = 1
+    for ct, carrier in fleet.index:
+        gen_i = ((n.generators.p_nom_extendable) & (n.generators.bus.str[:2]==ct)
+                 & (n.generators.carrier.str.contains(carrier)))
+        n.generators.loc[gen_i, "p_nom_max"] = ratio * fleet.loc[ct, carrier]
 
 
 def nuclear_policy(n):
@@ -315,7 +302,7 @@ def coal_policy(n):
     remove coal PPs fleet for countries with coal phase-out policy for {year}
     '''
    
-    countries = timescope(zone, year)['coal_phaseout']
+    countries = timescope(zone, year, snakemake)['coal_phaseout']
 
     for country in countries:
         n.links.loc[n.links['bus1'].str.contains(f'{country}') & (n.links.index.str.contains('coal')), 'p_nom'] = 0
@@ -689,7 +676,7 @@ def solve_network(n, policy, penetration, tech_palette):
         sus = n.model['StorageUnit-p_dispatch'].loc[:,country_res_storage_units] * weights
         lhs = gens.sum() + sus.sum() + links.sum()
 
-        target = timescope(zone, year)["country_res_target"]
+        target = timescope(zone, year, snakemake)["country_res_target"]
         total_load = (n.loads_t.p_set[grid_loads].sum(axis=1)*weights).sum() # number
 
         n.model.add_constraints(lhs == target*total_load, name="country_res_constraints")
@@ -725,12 +712,46 @@ def solve_network(n, policy, penetration, tech_palette):
 
         lhs = gens.sum() + sus.sum() + links.sum() + ci_gens.sum()
 
-        target = timescope(zone, year)["country_res_target"]
+        target = timescope(zone, year, snakemake)["country_res_target"]
         country_load = (n.loads_t.p_set[grid_loads].sum(axis=1)*weights).sum()
         ci_load = (n.loads_t.p_set[ci_loads].sum(axis=1)*weights).sum()
         total_load = country_load + ci_load
 
         n.model.add_constraints(lhs == target*total_load, name="country_res_constraints")
+
+
+    def system_res_constraints(n, snakemake):
+
+        ci_name = snakemake.config['ci']["name"]
+        zone = snakemake.wildcards.zone
+        year = snakemake.wildcards.year
+        country_targets = snakemake.config[f"res_target_{year}"]
+
+        for ct in country_targets.keys():
+            grid_buses = n.buses.index[(n.buses.index.str[:2]==ct)] #CI bus is not considered here!
+
+            if grid_buses.empty: continue
+
+            grid_res_techs = snakemake.config['global']['grid_res_techs']
+            grid_loads = n.loads.index[n.loads.bus.isin(grid_buses)]
+            
+            country_res_gens = n.generators.index[n.generators.bus.isin(grid_buses) & n.generators.carrier.isin(grid_res_techs)]
+            country_res_links = n.links.index[n.links.bus1.isin(grid_buses) & n.links.carrier.isin(grid_res_techs)]
+            country_res_storage_units = n.storage_units.index[n.storage_units.bus.isin(grid_buses) & n.storage_units.carrier.isin(grid_res_techs)]
+
+            weights = n.snapshot_weightings["generators"]
+            gens = n.model['Generator-p'].loc[:,country_res_gens] * weights
+            links = n.model['Link-p'].loc[:,country_res_links] * n.links.loc[country_res_links, "efficiency"] * weights
+            sus = n.model['StorageUnit-p_dispatch'].loc[:,country_res_storage_units] * weights
+            lhs = gens.sum() + sus.sum() + links.sum()
+
+            target = timescope(ct, year, snakemake)["country_res_target"]
+            total_load = (n.loads_t.p_set[grid_loads].sum(axis=1)*weights).sum()
+
+            print(f"country RES constraint for {ct} {target} and total load {total_load/1e6} TWh")
+            logger.info(f"country RES constraint for {ct} {target} and total load {total_load/1e6} TWh")
+
+            n.model.add_constraints(lhs == target*total_load, name=f"{ct}_res_constraint")
 
 
     def add_battery_constraints(n):
@@ -753,13 +774,19 @@ def solve_network(n, policy, penetration, tech_palette):
     def extra_functionality(n, snapshots):
 
         add_battery_constraints(n)
-        if snakemake.config['country_res_constraint'] == "default":
-            country_res_constraints(n)
-        elif snakemake.config['country_res_constraint']== "incl":
-            country_res_constraints_incl(n)
-        else: 
-            print(f"'zone' wildcard must be one of 'IE', 'DK', 'DE', 'NL'. Now is {zone}.")
-            sys.exit()
+
+        if snakemake.config['system_res_constraint'] == "system": 
+            system_res_constraints(n, snakemake) #linopy constraint function
+            limit_resexp(n, year, snakemake) #parameter capping function
+
+        elif snakemake.config['system_res_constraint'] == "local":
+
+            if snakemake.config['country_res_constraint'] == "default": country_res_constraints(n)
+            elif snakemake.config['country_res_constraint']== "incl": country_res_constraints_incl(n)
+            else: 
+                print(f"'country_res_constraint' setting must be one of 'default', 'incl'. Now is {snakemake.config['country_res_constraint']}.")
+                sys.exit()
+
 
         if policy == "ref":
             print("no target set")
@@ -830,11 +857,11 @@ if __name__ == "__main__":
     print(f"solving with participation: {participation}")
 
     # When running via snakemake
-    n = pypsa.Network(timescope(zone, year)['network_file'],
+    n = pypsa.Network(timescope(zone, year, snakemake)['network_file'],
                       override_component_attrs=override_component_attrs())
 
     Nyears = 1 # years in simulation
-    costs = prepare_costs(timescope(zone, year)['costs_projection'],
+    costs = prepare_costs(timescope(zone, year, snakemake)['costs_projection'],
                           snakemake.config['costs']['USD2013_to_EUR2013'],
                           snakemake.config['costs']['discountrate'],
                           Nyears,
@@ -854,7 +881,6 @@ if __name__ == "__main__":
         nuclear_policy(n)
         coal_policy(n)
         biomass_potential(n)
-        #limit_resexp(n,year)
 
         cost_parametrization(n)
         load_profile(n, zone, profile_shape)
