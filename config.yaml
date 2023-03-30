@@ -12,12 +12,12 @@ n_2030: 'input/v6_elec_s_37_lv1.0__3H-B-solar+p3_2030.nc'
 ###################
 # Scenario controls
 
-run: 'test-EU-systemRESCAP-ZeroExport'
+run: 'paper-EU'
 
 system_res_constraint: "system" # ["local", "system"] 
 country_res_constraint: "default" # ["default", "incl"] 
 
-excess_share: 0
+excess_share: 0.2
 
 #wildcards
 scenario:
@@ -28,7 +28,7 @@ scenario:
             ]
   zone: [ "IE",
           "DK",
-          #"DE",
+          "DE",
           #"NL"
         ]
   year: ['2025', 

@@ -767,6 +767,68 @@ def solve_network(n, policy, penetration, tech_palette):
             n.model.add_constraints(lhs == target*total_load, name=f"{ct}_res_constraint")
 
 
+    def system_res_constraints_necp(n, snakemake):
+        '''
+        An alternative implementation of system-wide level RES constraint.
+        This constraint follows EU RE directive that counts corporate PPA within NECPS.
+        '''
+
+        ci_name = snakemake.config['ci']["name"]
+        zone = snakemake.wildcards.zone
+        year = snakemake.wildcards.year
+        country_targets = snakemake.config[f"res_target_{year}"]
+
+        grid_res_techs = snakemake.config['global']['grid_res_techs']
+        weights = n.snapshot_weightings["generators"]
+
+        for ct in country_targets.keys():
+            
+            if ct == zone:
+                grid_buses = n.buses.index[(n.buses.index.str[:2]==ct) | (n.buses.index == f"{ci_name}")]
+                grid_loads = n.loads.index[n.loads.bus.isin(grid_buses)]
+                
+                country_buses = n.buses.index[(n.buses.index.str[:2]==ct)]
+                country_res_gens = n.generators.index[n.generators.bus.isin(country_buses) & n.generators.carrier.isin(grid_res_techs)]
+                country_res_links = n.links.index[n.links.bus1.isin(country_buses) & n.links.carrier.isin(grid_res_techs)]
+                country_res_storage_units = n.storage_units.index[n.storage_units.bus.isin(country_buses) & n.storage_units.carrier.isin(grid_res_techs)]
+
+                gens = n.model['Generator-p'].loc[:,country_res_gens] * weights
+                links = n.model['Link-p'].loc[:,country_res_links] * n.links.loc[country_res_links, "efficiency"] * weights
+                sus = n.model['StorageUnit-p_dispatch'].loc[:,country_res_storage_units] * weights
+                lhs = gens.sum() + sus.sum() + links.sum()
+
+                target = timescope(ct, year, snakemake)["country_res_target"]
+                total_load = (n.loads_t.p_set[grid_loads].sum(axis=1)*weights).sum()
+                ci_load = (n.loads_t.p_set[f"{ci_name} load"]*weights).sum()
+
+                print(f"country RES constraint for {ct} {target} and total load {round(total_load/1e6, 2)} TWh")
+                logger.info(f"country RES constraint for {ct} {target} and total load {round(total_load/1e6, 2)} TWh")
+
+                n.model.add_constraints(lhs == (target*total_load - ci_load), name=f"{ct}_res_constraint")
+
+            else:
+                country_buses = n.buses.index[(n.buses.index.str[:2]==ct)]
+                if country_buses.empty: continue
+
+                country_loads = n.loads.index[n.loads.bus.isin(country_buses)]
+                country_res_gens = n.generators.index[n.generators.bus.isin(country_buses) & n.generators.carrier.isin(grid_res_techs)]
+                country_res_links = n.links.index[n.links.bus1.isin(country_buses) & n.links.carrier.isin(grid_res_techs)]
+                country_res_storage_units = n.storage_units.index[n.storage_units.bus.isin(country_buses) & n.storage_units.carrier.isin(grid_res_techs)]
+
+                gens = n.model['Generator-p'].loc[:,country_res_gens] * weights
+                links = n.model['Link-p'].loc[:,country_res_links] * n.links.loc[country_res_links, "efficiency"] * weights
+                sus = n.model['StorageUnit-p_dispatch'].loc[:,country_res_storage_units] * weights
+                lhs = gens.sum() + sus.sum() + links.sum()
+
+                target = timescope(ct, year, snakemake)["country_res_target"]
+                total_load = (n.loads_t.p_set[country_loads].sum(axis=1)*weights).sum()
+
+                print(f"country RES constraint for {ct} {target} and total load {round(total_load/1e6, 2)} TWh")
+                logger.info(f"country RES constraint for {ct} {target} and total load {round(total_load/1e6, 2)} TWh")
+
+                n.model.add_constraints(lhs == target*total_load, name=f"{ct}_res_constraint")
+
+
     def add_battery_constraints(n):
         """
         Add constraint ensuring that charger = discharger:
@@ -789,11 +851,10 @@ def solve_network(n, policy, penetration, tech_palette):
         add_battery_constraints(n)
 
         if snakemake.config['system_res_constraint'] == "system": 
-            system_res_constraints(n, snakemake) #linopy constraint function
+            system_res_constraints_necp(n, snakemake) #linopy constraint function
             limit_resexp(n, year, snakemake) #parameter capping function
 
         elif snakemake.config['system_res_constraint'] == "local":
-
             if snakemake.config['country_res_constraint'] == "default": country_res_constraints(n)
             elif snakemake.config['country_res_constraint']== "incl": country_res_constraints_incl(n)
             else: 
@@ -848,7 +909,7 @@ if __name__ == "__main__":
         from _helpers import mock_snakemake
         os.chdir(os.path.dirname(os.path.abspath(__file__)))
         snakemake = mock_snakemake('solve_network', 
-                    policy="cfe100", palette='p1', zone='DK', year='2025', participation='10')
+                    policy="cfe100", palette='p1', zone='IE', year='2025', participation='10')
 
     logging.basicConfig(filename=snakemake.log.python, level=snakemake.config['logging_level'])
 
