@@ -13,8 +13,8 @@ gurobi.log
 /talks
 
 /report_WP1
-/scripts/_playground.py
-/scripts/_playground-ts.ipynb
+/scripts/__playground.py
+/scripts/__playground-ts.ipynb
 
 *.org
 *~
