@@ -12,10 +12,10 @@ n_2030: 'input/v6_elec_s_37_lv1.0__3H-B-solar+p3_2030.nc'
 ###################
 # Scenario controls
 
-run: 'paper-EU'
+run: 'paper'
 
 system_res_constraint: "system" # ["local", "system"] 
-country_res_constraint: "default" # ["default", "incl"] 
+country_res_constraint: "default" # ["default", "incl"] -> if system_res_constraint == "local"
 
 excess_share: 0.2
 
@@ -29,13 +29,14 @@ scenario:
   zone: [ "IE",
           "DK",
           "DE",
-          "PL"
+          "PL",
+          #"NL" 
         ]
   year: ['2025', 
          '2030'
          ] # controls both the brownfield fleet and tech costs projection
   participation: ['10', 
-                  #'25'
+                  '25'
                   ] #share [%] of CI load per zone following 247-CFE approach
 
 #data center
