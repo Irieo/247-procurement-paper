@@ -29,7 +29,7 @@ scenario:
   zone: [ "IE",
           "DK",
           "DE",
-          #"NL"
+          "PL"
         ]
   year: ['2025', 
          '2030'
@@ -115,7 +115,7 @@ ci_load:
   DK: 2240.
   DE: 38410.
   NL: 8140.
-
+  PL: 11140.
 
 #national policies
 #countries with nuclear phase-out policy (FR and BE shifted plan to 2035)

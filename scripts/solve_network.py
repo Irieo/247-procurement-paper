@@ -72,6 +72,12 @@ def geoscope(zone, area):
         d['country_nodes'] = ['NL1 0']
         d['node'] = 'NL1 0'
 
+    elif zone == 'PL':
+        d['basenodes_to_keep'] = ['DE1 0', 'BE1 0', 'NO2 0', 'DK1 0', 'DK2 0', 'SE2 0', 'GB0 0', 
+                                  'FR1 0', 'LU1 0', 'NL1 0', 'PL1 0', 'AT1 0', 'CH1 0', 'CZ1 0']
+        d['country_nodes'] = ['PL1 0']
+        d['node'] = 'PL1 0'
+
     else: 
         print(f"'zone' wildcard must be one of 'IE', 'DK', 'DE', 'NL'. Now is {zone}.")
         sys.exit()
