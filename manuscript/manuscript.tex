@@ -1,4 +1,4 @@
-\documentclass[11pt, 5p]{elsarticle}
+\documentclass[11pt, 5p, nopreprintline]{elsarticle}
 
 \journal{TBA}
 
@@ -50,7 +50,7 @@
 \DeclareSIUnit{\tco}{t_{\ce{CO2}}}
 \DeclareSIUnit{\sieuro}{\mbox{\euro}}
 
-\graphicspath{{../results/graphics/},}
+\graphicspath{{../results/paper/},}
 
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
@@ -75,8 +75,8 @@
 
 % acronyms
 \makeglossaries
-\newacronym{tes}{TES}{Thermal energy storage (in form of water tanks)}
-\newacronym{chp}{CHP}{Combined heat and power plant}
+\newacronym{tes}{TES}{Thermal Energy Storage (in form of water tanks)}
+\newacronym{chp}{CHP}{Combined Heat and Power plant}
 \newacronym{cop}{COP}{Coefficient of Performance}
 \newacronym{bdew}{BDEW}{Bundesverband der Energie- und Wasserwirtschaft}
 \newacronym{PV}{PV}{Solar photovoltaics}
@@ -85,29 +85,29 @@
 \newacronym{dea}{DEA}{Danish Energy Agency}
 \newacronym{helmeth}{HELMETH}{Integrated High-Temperature Electrolysis and Methanation for Effective Power to Gas Conversion}
 \newacronym{jrc}{JRC}{Joint Research Center}
-\newacronym{ocgt}{OCGT}{Open cyclic gas turbine}
+\newacronym{ocgt}{OCGT}{Open Cycle Gas Turbine}
 \newacronym{v2g}{V2G}{Vehicle to Grid}
 \newacronym{pypsa}{PyPSA}{Python for Power System Analysis}
-\newacronym{tyndp}{TYNDP}{Ten-year network development plan}
-\newacronym{entso-e}{ENTSO-E}{European network for transmission system operators electricity}
-\newacronym{nuts}{NUTS}{Nomenclature of Territorial Units for Statistics}
-\newacronym{covid}{COVID-19}{Coronavirus disease 2019}
+\newacronym{tyndp}{TYNDP}{Ten-Year Network Development Plan}
+\newacronym{entsoe}{ENTSO-E}{European Network for Transmission System Operators for Electricity}
 \newacronym{entsog}{ENTSO-G}{European Network of Transmission System Operators for Gas}
-\newacronym{dsm}{DSM}{Demand side management}
-\newacronym{hvdc}{HVDC}{High voltage direct current}
-\newacronym{phs}{PHS}{Pumped hydro storage}
-\newacronym{dac}{DAC}{Direct air capture}
-\newacronym{sng}{SNG}{Synthetic natural gas}
-\newacronym{fom}{FOM}{Fixed operation and maintenance costs}
-\newacronym{vom}{VOM}{Variable operation and maintenance costs}
+\newacronym{nuts}{NUTS}{Nomenclature of Territorial Units for Statistics}
+\newacronym{dsm}{DSM}{Demand Side Management}
+\newacronym{hvdc}{HVDC}{High Voltage Direct Current}
+\newacronym{phs}{PHS}{Pumped Hydro Storage}
+\newacronym{dac}{DAC}{Direct Air Capture}
+\newacronym{sng}{SNG}{Synthetic Natural Gas}
+\newacronym{fom}{FOM}{Fixed Operation and Maintenance costs}
+\newacronym{vom}{VOM}{Variable Operation and Maintenance costs}
 \newacronym{ppa}{PPA}{Power Purchase Agreement}
 \newacronym{ptc}{PTC}{Production Tax Credit}
-\newacronym{res}{RES}{Renewable energy sources}
-\newacronym{necp}{NECP}{National energy climate plan}
+\newacronym{res}{RES}{Renewable Energy Sources}
+\newacronym{necp}{NECP}{National Energy and Climate Plan}
 \newacronym{ets}{ETS}{Emissions Trading System}
 \newacronym{capex}{CAPEX}{Capital expenditures}
 \newacronym{cfd}{CfD}{Contract for Difference}
-\newacronym{cfe}{CFE}{Carbon-free electricity}
+\newacronym{cfe}{CFE}{Carbon-Free Electricity}
+\newacronym{ci}{CI}{Corporate and Industry sectors}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,7 +123,7 @@
 	\author[tubaddress]{Tom Brown} 
 	\ead{t.brown@tu-berlin.de}
 	
-	\address[tubaddress]{Department of Digital Transformation in Energy Systems, TU Berlin, Einsteinufer 25, 10587 Berlin, Germany}
+	\address[tubaddress]{Department of Digital Transformation in Energy Systems, TU Berlin, Germany}
 
 	\begin{abstract}
 		\input{sections/abstract.tex}
@@ -163,30 +163,29 @@
 
 \section*{Acknowledgements}
 
-% XY gratefully acknowledge funding from XY under grant no. 00000.
-
-\section*{License}
-% \doclicenseLongText
-% \doclicenseIcon
+This paper is an independent project, which is based on the third-party funded 
+research work \cite{Riepin-report-2022}. This research work was supported by a grant from Google Inc. 
 
 \section*{Author Contributions}
 
 % following https://casrai.org/credit/
 
-\textbf{Author XY}:
+\textbf{Iegor Riepin}:
 Conceptualization --
 Data curation --
 Formal Analysis --
-Funding acquisition --
 Investigation --
 Methodology --
-Project administration --
-Resources --
 Software --
-Supervision --
 Validation --
 Visualization --
-Writing - original draft --
+Writing - original draft
+
+\textbf{Tom Brown}:
+Conceptualization --
+Methodology --
+Software --
+Supervision --
 Writing - review \& editing
 
 \section*{Data and Code Availability}
@@ -194,7 +193,6 @@ Writing - review \& editing
 A dataset of the model results is available at \href{zenodoTBA}{doi:zenodoTBA}.
 The code to reproduce the experiments is available at \href{https://github.com/repository}{GITHUB}.
 
-\section*{Abbreviations}
 \printglossary[type=\acronymtype]
 
 % tidy with https://flamingtempura.github.io/bibtex-tidy/
@@ -221,10 +219,12 @@ The code to reproduce the experiments is available at \href{https://github.com/r
 \section{Supplementary Information}
 \label{sec:si}
  
+
 \input{sections/supplementary.tex}
 
 \addcontentsline{toc}{section}{Supplementary References}
 \renewcommand{\ttdefault}{\sfdefault}
 \bibliographyS{references}
+
 
 \end{document}
