@@ -35,7 +35,7 @@
 \usepackage{siunitx}                 % Provides consistent formatting for units and numbers
 \usepackage[acronym, automake, nonumberlist]{glossaries-extra}
 
-
+\usepackage{float}
 \usepackage{lipsum}
 \usepackage{mdframed}
 \usepackage[resetlabels,labeled]{multibib} % Allows multiple bibliographies with own styles/numbering
@@ -50,7 +50,10 @@
 \DeclareSIUnit{\tco}{t_{\ce{CO2}}}
 \DeclareSIUnit{\sieuro}{\mbox{\euro}}
 
-\graphicspath{{../results/paper/},}
+\setlength{\abovecaptionskip}{1pt} 	% Adjust the space above the caption
+\graphicspath{ 						% Allows for multiple directories
+	{../results/paper/},
+	}
 
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
@@ -107,7 +110,7 @@
 \newacronym{capex}{CAPEX}{Capital expenditures}
 \newacronym{cfd}{CfD}{Contract for Difference}
 \newacronym{cfe}{CFE}{Carbon-Free Electricity}
-\newacronym{ci}{CI}{Corporate and Industry sectors}
+\newacronym{ci}{C\&I}{Corporate and Industry (sectors)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -116,7 +119,7 @@
 
 \begin{frontmatter}
 
-	\title{Navigating to a Greener Europe through Clean Electricity Procurement}
+	\title{Navigating to a greener Europe with 24/7 hourly clean electricity procurement}
     
 	\author[tubaddress]{Iegor Riepin}
 	\ead{iegor.riepin@tu-berlin.de}
@@ -139,7 +142,7 @@
 \end{frontmatter}
 
 %\listoftodos[TODOs]
-%\tableofcontents
+\tableofcontents
 
 \section{Introduction}
 \label{sec:intro}
@@ -189,9 +192,11 @@ Supervision --
 Writing - review \& editing
 
 \section*{Data and Code Availability}
+\label{sec:code}
 
-A dataset of the model results is available at \href{zenodoTBA}{doi:zenodoTBA}.
-The code to reproduce the experiments is available at \href{https://github.com/repository}{GITHUB}.
+The data and code to reproduce the experiments is available at \href{https://github.com/repository}{GITHUB}.
+
+The online dashboard with the results for this study is available at \url{dashboard}.  
 
 \printglossary[type=\acronymtype]
 
