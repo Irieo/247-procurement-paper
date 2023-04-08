@@ -211,7 +211,7 @@ def ci_emisrate():
     fig, ax = plt.subplots()
     fig.set_size_inches((6,4.5))
 
-    ldf = df.loc['ci_emission_rate_true']
+    ldf = df.loc['ci_emission_rate_true']*1e3
     ldf.index = ldf.index.map(rename_scen)
    
     yl_ref = ldf.loc['no\npolicy']
@@ -219,7 +219,7 @@ def ci_emisrate():
     plt.axhline(y = yl_ref, color = 'gray', linestyle="-", linewidth=1.5)
     plt.axhline(y = yl_100RES, color = 'gray', linestyle="--", linewidth=0.8)
     plt.axvline(x = 0.5, color = 'gray', linestyle="--")
-    plt.text(1.5, yl_ref-0.06*yl_ref,f'Reference case, C&I emission rate {round(yl_ref,3)} [t/MWh]', 
+    plt.text(3, yl_ref-0.06*yl_ref,f'Reference case: {int(yl_ref)} gCO\u2082/kWh', 
             horizontalalignment='left', bbox=dict(facecolor='w', alpha=0.5)) 
     
     #Drop reference scenario before plotting
@@ -232,7 +232,7 @@ def ci_emisrate():
     ax.grid(alpha=0.3)
     ax.set_axisbelow(True)
     #ax.set_xlabel("CFE target")
-    ax.set_ylabel("C&I emission rate [t/MWh]")
+    ax.set_ylabel("C&I emission rate [gCO\u2082/kWh]")
     #ax.yaxis.label.set_size(6)
 
     fig.tight_layout()
@@ -553,7 +553,7 @@ def system_emisrate():
     fig, ax = plt.subplots()
     fig.set_size_inches((6,4.5))
 
-    ldf = df.loc['system_emission_rate']
+    ldf = df.loc['system_emission_rate']*1e3
     ldf.index = ldf.index.map(rename_scen)
 
     #Drop reference scenario before plotting
@@ -566,7 +566,7 @@ def system_emisrate():
     ax.grid(alpha=0.3)
     ax.set_axisbelow(True)
     #ax.set_xlabel("CFE target")
-    ax.set_ylabel("System emission rate [t/MWh]")
+    ax.set_ylabel("System emission rate [gCO\u2082/kWh]")
     #ax.yaxis.label.set_size(6)
 
     fig.tight_layout()
