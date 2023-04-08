@@ -53,10 +53,12 @@ A \textit{reference case} depicts a case when the consumers cover their load pur
 In the reference case, where \gls{ci} consumers do not procure any resources, relying purely on grid purchases, only 54\% of demand is met with clean electricity.
 100\% RES -- the best case for the annual renewable matching policy -- results in 83\% fraction. 
 Consequently, 24/7~CFE targets beyond 85\% yield higher share of hourly demand met with clean electricity than 100\% annual matching policy.
-A notable trend in \cref{fig:10-2025-IE-p1-used} is that \gls{ci} participants rely more on procured resources and less on grid imports with CFE target approaching 100\%,
+
+Another notable trend in \cref{fig:10-2025-IE-p1-used} is that \gls{ci} participants rely more on procured resources and less on grid imports with higher CFE target.
+When CFE target approaches 100\%, \gls{ci} consumers cannot rely on electricity imports from the grid, since the grid supply mix contains some carbon content in almost all hours.
 
 \cref{fig:10-2025-IE-p1-ci_emisrate} shows how choice of a procurement policy affects the average emissions rate of \gls{ci} consumers.
-Already in 2025, Ireland has a moderately clean electricity system: the emission rate is at 178~g\co/kWh in the reference case. 
+Already in 2025, Ireland has a moderately clean electricity system: the emission rate is at 177~g\co/kWh in the reference case. 
 If \gls{ci} consumers follow 100\% RES goal and procure enough renewable recourses, the emission rate is reduced to 60~g\co/kWh.
 This yields a considerable emission rate reduction compared to the reference case.
 The 24/7 procurement policy with CFE targets above 85\% can help the participating consumers to reduce emissions further, or eliminate them competely in the case of 100\% 24/7~CFE.
@@ -96,7 +98,6 @@ The results show that a CFE targets of 80\%--95\% can be achieved at a small cos
 However, what stands out in the plot is the rapid increase of procurement costs for high 24/7 CFE targets. 
 For example, 98\% CFE target has cost premium of 54\% over 100\% the RES policy; while the last 2\% of hourly CFE matching more than doubles the costs.
 
-
 \begin{figure}
     \centering
     \begin{subfigure}[t]{\columnwidth}
@@ -112,9 +113,9 @@ For example, 98\% CFE target has cost premium of 54\% over 100\% the RES policy;
         \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/ci_costandrev.pdf}
         \label{fig:10-2025-IE-p1-ci_costandrev}
     \end{subfigure}
-    \caption{Procurement of clean resources and energy storage by \gls{ci} consumerts participating in voluntary clean electricity procurement. 
-    \cref{fig:10-2025-IE-p1-ci_capacity} shows power capacity portfolio for each procurement policy [GW].
-    \cref{fig:10-2025-IE-p1-ci_costandrev} shows the breakdown of costs associated with a procurement [\euro/MWh].}
+    \caption{Procurement of clean resources and energy storage by \gls{ci} consumers participating in voluntary clean electricity procurement. 
+    \cref{fig:10-2025-IE-p1-ci_capacity} shows power capacity portfolio for each procurement policy.
+    \cref{fig:10-2025-IE-p1-ci_costandrev} shows the breakdown of costs associated with a procurement.}
     \label{fig:10-2025-IE-p1-ci_procurement}
 \end{figure}
 
@@ -122,13 +123,75 @@ For example, 98\% CFE target has cost premium of 54\% over 100\% the RES policy;
 \subsection{Technology access}
 \label{subsec:palette}
 
-\vspace*{5pt}
+\vspace{10pt}
 \begin{res}
     24/7-CFE procurement triggers investment in new technologies the system will need later: long-duration storage and new clean firm generation.
 \end{res}
 
+\vspace*{5pt}
+\begin{res}
+    High targets for 24/7 CFE procurement could have a much smaller cost premium if long duration energy storage or advanced clean firm technologies are available for a commercial scale up.
+\end{res}
 
-text 
+The cost premium of 24/7 hourly clean electricity procurement presented in \cref{subsec:base} is driven by the variability of renewable power supply.
+Indeed, in the periods when not much wind or solar is available, matching every kilowatt-hour of electricity consumption with carbon-free electricity on hourly basis is not an easy task.
+Battery storage technology is cost-optimal for shifting surplus a power supply by a couple of hours. 
+However, bridging extended periods of low wind and sun with battery storage is expensive.
+Results above also illustrate that for CFE targets of 98\%--100\%, 24/7 participating consumers rely little on the grid supply, since electricity mix in the local grids contain some carbon content.
+
+The results in \cref{fig:10-2025-IE-p23-ci_procurement} reflect a case when 24/7~CFE participants have an access to a wider palette of technologies: 
+long-duration energy storage (\gls{ldes}) and advanced clean firm generators, such as advanced geothermal systems, advanced nuclear or Allam cycle generators with carbon capture and sequestration.
+
+The top row shows the power capacity portfolio (\cref{fig:10-2025-IE-p2-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p2-ci_costandrev}) for a case when \gls{ci} consumers have an access to \textbf{palette~2} technologies, i.e., the \gls{ldes} system is also available on a market.%
+\footnote{Here we assume 2.5~\euro/kWh underground hydrogen storage in salt caverns.}
+The \gls{ldes} helps to align the load with the generation of procured variable renewable resources. 
+As a result, the cost-optimal portfolio of renewable capacity for the 100\% 24/7 CFE target is not much larger than for the 100\% annual matching policy. 
+This also significantly decreases procurement costs at high CFE targets: 100\% 24/7~CFE has a cost premium of 42\% above 100\% annual renewable mathing policy.
+
+The bottom row shows the results for technological \textbf{palette 3} scenario (\cref{fig:10-2025-IE-p3-ci_capacity} and \cref{fig:10-2025-IE-p3-ci_costandrev}). 
+The procurement strategy now includes the Allam cycle generator.
+The clean firm technology can be operated any time of the year and thus helps to fill in the gaps in variable renewable generation to match demand and clean generation on hourly basis.
+Inclusion of clean firm generation also reduces renewable capacity and storage requirements. 
+This, in turn, further limits the 24/7 CFE cost premium.
+In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable mathing.
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{Portfolio capacity with LDES.}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p2/ci_capacity.pdf}
+        \label{fig:10-2025-IE-p2-ci_capacity}
+    \end{subfigure}% 
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{Costs of a procurement policy with LDES.}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p2/ci_costandrev.pdf}
+        \label{fig:10-2025-IE-p2-ci_costandrev}
+    \end{subfigure}
+
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \vspace{-0.5cm}
+        \caption{Portfolio capacity with LDES and clean firm generators.}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p3/ci_capacity.pdf}
+        \label{fig:10-2025-IE-p3-ci_capacity}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \vspace{-0.5cm}
+        \caption{Costs of a procurement policy LDES and clean firm generators.}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p3/ci_costandrev.pdf}
+        \label{fig:10-2025-IE-p3-ci_costandrev}
+    \end{subfigure}
+    \caption{Procurement of clean resources and energy storage if \gls{ci} consumerts have an access to a wider palette of technologies. 
+    The top row shows the power capacity portfolio (\cref{fig:10-2025-IE-p2-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p2-ci_costandrev}) 
+    if \gls{ldes} is available on the market.
+    The bottom row shows the power capacity portfolio (\cref{fig:10-2025-IE-p3-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p3-ci_costandrev}) 
+    for a case when both \gls{ldes} and clean firm dispatchable generators are available.}
+    \label{fig:10-2025-IE-p23-ci_procurement}
+\end{figure*}
+
 
 \subsection{Diverse grid locations}
 \label{subsec:location}
@@ -145,7 +208,3 @@ text
 
 text 
 
-
-\subsection{title}
-
-text
