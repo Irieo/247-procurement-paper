@@ -29,7 +29,7 @@ def used():
     plt.axhline(y = yl_ref, color = 'gray', linestyle="--", linewidth=0.8)
     plt.axhline(y = yl_100RES, color = 'gray', linestyle="--", linewidth=0.8)
     plt.axvline(x = 0.5, color = 'gray', linestyle="--")
-    plt.text(3.5,yl_ref-6,f'Reference case, fraction CFE={int(round(yl_ref,0))}'+'%', 
+    plt.text(4, yl_ref-6,f'Reference case: {int(round(yl_ref,0))}'+'%', 
             horizontalalignment='left', bbox=dict(facecolor='w', alpha=0.5)) 
     
     #Drop reference scenario before plotting
@@ -186,7 +186,7 @@ def zone_emissions():
     plt.axhline(y = yl_100RES, color = 'gray', linestyle="--", linewidth=0.8)
     plt.axhline(y = yl_end, color = 'gray', linestyle="--", linewidth=0.8)
     plt.axvline(x = 0.5, color = 'gray', linestyle="--")
-    plt.text(3.3, yl_ref-0.02*yl_ref,f'Reference case, emissions {round(yl_ref,1)} [Mt]', 
+    plt.text(3.5, yl_ref-0.02*yl_ref,f'Reference case: {round(yl_ref,1)} Mt', 
             horizontalalignment='left', bbox=dict(facecolor='w', alpha=0.5)) 
     
     #Drop reference scenario before plotting
@@ -339,7 +339,7 @@ def ci_costandrev():
     #ax.set_xlabel("CFE target")
     ax.set_ylabel("24x7 C&I cost and revenue [€/MWh]")
     ax.legend(loc="upper left", ncol = 3, prop={"size":8})
-    ax.set_ylim(top=yl_end*1.5)
+    ax.set_ylim(top=yl_end*1.7)
 
     fig.tight_layout()
     fig.savefig(snakemake.output.used.replace("used.pdf","ci_costandrev.pdf"),

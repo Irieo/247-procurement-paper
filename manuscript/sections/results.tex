@@ -82,7 +82,7 @@ This reduction is equivalent to 14\% of Irish power sector emissions.
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/zone_emissions.pdf}
-    \caption{CO2 emissions in the local region -- Ireland.}
+    \caption{\co emissions in the local region (Ireland).}
     \label{fig:10-2025-IE-p1-zone_emissions}
 \end{figure}
 
@@ -100,17 +100,17 @@ For example, 98\% CFE target has cost premium of 54\% over 100\% the RES policy;
 
 \begin{figure}
     \centering
-    \begin{subfigure}[t]{\columnwidth}
+    \begin{subfigure}[t]{0.95\columnwidth}
         \centering
         \caption{Portfolio capacity procured by participating consumers.}
-        \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/ci_capacity.pdf}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p1/ci_capacity.pdf}
         \label{fig:10-2025-IE-p1-ci_capacity}
     \end{subfigure}
-    \begin{subfigure}[t]{\columnwidth}
+    \begin{subfigure}[t]{0.95\columnwidth}
         \centering
         \vspace{-0.5cm}
         \caption{Costs of a procurement policy.}
-        \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/ci_costandrev.pdf}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p1/ci_costandrev.pdf}
         \label{fig:10-2025-IE-p1-ci_costandrev}
     \end{subfigure}
     \caption{Procurement of clean resources and energy storage by \gls{ci} consumers participating in voluntary clean electricity procurement. 
@@ -169,22 +169,19 @@ In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable ma
         \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p2/ci_costandrev.pdf}
         \label{fig:10-2025-IE-p2-ci_costandrev}
     \end{subfigure}
-
     \begin{subfigure}{0.5\textwidth}
         \centering
-        \vspace{-0.5cm}
         \caption{Portfolio capacity with LDES and clean firm generators.}
         \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p3/ci_capacity.pdf}
         \label{fig:10-2025-IE-p3-ci_capacity}
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
         \centering
-        \vspace{-0.5cm}
-        \caption{Costs of a procurement policy LDES and clean firm generators.}
+        \caption{Costs of a procurement policy with LDES and clean firm generators.}
         \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p3/ci_costandrev.pdf}
         \label{fig:10-2025-IE-p3-ci_costandrev}
     \end{subfigure}
-    \caption{Procurement of clean resources and energy storage if \gls{ci} consumerts have an access to a wider palette of technologies. 
+    \caption{Procurement of clean resources and energy storage if \gls{ci} consumers located in Ireland have an access to a wider palette of technologies.
     The top row shows the power capacity portfolio (\cref{fig:10-2025-IE-p2-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p2-ci_costandrev}) 
     if \gls{ldes} is available on the market.
     The bottom row shows the power capacity portfolio (\cref{fig:10-2025-IE-p3-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p3-ci_costandrev}) 
@@ -196,12 +193,78 @@ In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable ma
 \subsection{Diverse grid locations}
 \label{subsec:location}
 
-text 
+While we have focused on base scenario reflecting the case of Ireland, exactly the same modelling exercise can be repeated for other regions of the European electricity grid.
+Since each region has a unique set of characteristics that depend on local resources, renewable potentials, national energy and climate policies, and degree of interconnections, such sensitivity can allow for generalising the impact of 24/7 CFE procurement void regional differences.
+
+\cref{fig:10-2025-DEPL-p3-4plots} shows results for the two selected regions: Germany and Poland. Germany is selected as it the largest electricity consumer in Europe and it is well interconnected to regions with clean electrcity grids, such as France and Denmark. 
+Poland -- a country with  historic dependency on domestic coal resources, resistance from the coal industry and lack of governmental support for renewable energy -- is selected for a contrast. To keep other factors constant, the same 10\% share of \gls{ci} consumers is set to participate in voluntary clean electricity procurement.\footnote{10\% participation rate of \gls{ci} sector yields load of 3.8~GW in Germany and 1.1~GW in Poland.}
+
+Despite regional differences, the dynamics of 24/7 CFE procurement, observed in the example of Ireland, show similar trends. 
+
+As can be expected, the cleaner grid in the German case results in a lower value of the average emissions rate of participating consumers than in the case of Poland. The values in the reference case are at 240~g\co/kWh and 549~g\co/kWh for Germany and Poland, respectively.\footnote{For reference, 2021 estimates for emission intensity of electricity generation are 402~g\co/kWh in Germany and 750~g\co/kWh Poland \cite{EEA-europa-web}.}
+
+Similar to the Irish results, \cref{fig:10-2025-DE-p3-ci_emisrate} and \cref{fig:10-2025-PL-p3-ci_emisrate} show that in both cases, \gls{ci} participants achieve lower emissions rates with 24/7 hourly CFE procurement than with 100\% annual matching once CFE target is tight enough. As expected at 100\% CFE target, participating consumers achieve a zero emission rate associated to their electricity consumption, since they perfectly match demand and clean generation on hourly basis.
+
+% Another result that stands out in the cases of Germany and Poland is the impact of the 24\7 procurement on the system-level \co emissions.
+
+% Without any CFE procurement stategy, the German power sector carbon emissions are at the level of 40.6 MtCO2 in 2025.
+
+% With just 10\% participation rate, ca. 3.8 GW of C&I load follows voluntary procurement.
+
+% With this participation, the 100\% RES can reduce system-level CO2 emissions by 6 MtCO2 per year. With the 24/7 hourly matching, C&I consumers achieve greater impact on emissions, up to 8 MtCO2 per year with CFE 100\% target.
+
+% NB this impact can be achieved with just a 10\% cost premium on top of the 100\% annual renewable matching (see C&I cost analysis above).
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{Average emissions rate of participating consumers (Germany).}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/DE/p3/ci_emisrate.pdf}
+        \label{fig:10-2025-DE-p3-ci_emisrate}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{Average emissions rate of participating consumers (Poland).}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/PL/p3/ci_emisrate.pdf}
+        \label{fig:10-2025-PL-p3-ci_emisrate}
+    \end{subfigure}
+
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{\co emissions in the local region (Germany).}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/DE/p3/zone_emissions.pdf}
+        \label{fig:10-2025-DE-p3-zone_emissions}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{\co emissions in the local region (Poland).}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/PL/p3/zone_emissions.pdf}
+        \label{fig:10-2025-PL-p3-zone_emissions}
+    \end{subfigure}%
+
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{Costs of a procurement policy (Germany).}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/DE/p3/ci_costandrev.pdf}
+        \label{fig:10-2025-DE-p3-ci_costandrev}
+    \end{subfigure}%
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \caption{Costs of a procurement policy (Poland).}
+        \includegraphics[width=0.95\columnwidth]{plots/10/2025/PL/p3/ci_costandrev.pdf}
+        \label{fig:10-2025-PL-p3-ci_costandrev}
+    \end{subfigure}
+
+    \caption{Results for cases when 10\% of \gls{ci} load in Germany \textbf{(left panel)} and Poland \textbf{(right panel)} follows 24/7 hourly clean electricity procurement. Selected scenario with technological palette~3.}
+    \label{fig:10-2025-DEPL-p3-4plots}
+\end{figure*}
+
 
 \subsection{Moving five years more ahead}
 \label{subsec:time}
 
-text 
+Note that for lower CFE targets, constraint (2) is not binding, what makes the same cost-optimal shares of procured portfolio and grid imports repeat until the CFE target becomes tight enough.
 
 \subsection{Uncovering mechanisms how 24/7 CFE commitments decarnonise local grids}
 \label{subsec:mechanisms}
