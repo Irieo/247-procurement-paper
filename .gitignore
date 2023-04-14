@@ -15,6 +15,7 @@ gurobi.log
 /report_WP1
 /scripts/__playground.py
 /scripts/__playground-ts.ipynb
+/scripts/__playground.ipynb
 
 *.org
 *~
