@@ -1,9 +1,9 @@
 In this section, we present modelling results and related analysis. 
 In the analysis, we explore how the 247-CFE and the 100\% annual renewable matching procurement approaches affect both the participating electricity buyers and the electricity system as a whole. 
-Focusing on the electricity buyers' perspective, we analyse procurement strategies (i.e. the optimal mix of locally procured capacities of energy generation \& storage assets and electricity imports from the grid), the average costs of procured electricity and carbon emissions associated with the consumers' electricity usage.
+Focusing on the electricity buyers' perspective, we analyse procurement strategies (i.e. the optimal mix of locally procured capacities of energy generation and storage assets, and electricity imports from the grid), the average costs of procured electricity and carbon emissions associated with the consumers' electricity usage.
 When our focus switches to the system perspective, we describe the impact of the \gls{cfe} procurement approaches on \co emissions on the local grids, as well as the impact on back up flexibility needs.
 
-As described in \cref{subsec:scenarios}, we aim to generalize our findings void individual assumptions by incorporating a large scenario space into the study design. 
+We aim to generalize our findings on 24/7 procurement void individual assumptions by incorporating a large scenario space into the study design.
 For convenience, we start with a \textit{base scenario} presented in \cref{subsec:base}.
 Afterwards, we explore the scenario space further by presenting selected results that answer the following questions:
 \begin{enumerate}[(i)]
@@ -13,7 +13,7 @@ Afterwards, we explore the scenario space further by presenting selected results
 \item Finally, in \cref{subsec:mechanisms}, we explore how exactly 24/7 CFE commitments help to decarbonize local grids and reveal the individual mechanisms behind this effect that are present across the scenario space.
 \end{enumerate}
 
-In the Annex \ref{sec:si}, we summarise findings from sensitivity analyses regarding higher 24/7 procurement participations rates and various consumption profiles of electricity buyers.
+In the \nameref{sec:discussion}, we summarise our findings for the four questions above and have a look beyond the focus of the model scenarios discussed in the main part of the paper by integrating observations from sensitivity analyses relating to the participation rates of electricity buyers and their diverse consumption profiles, providing an overarching look at the 24/7 procurement and impacts on the electrcity systems.
 
 Given the large scenario space, the manuscript presents results for selected scenario branches that generalise system impacts of 24/7 hourly clean electricity procurement.
 For interested reader, we provide results for the entire scenario space in a dashboard that is published online alongside this study, see \nameref{sec:code}.
@@ -32,9 +32,9 @@ For interested reader, we provide results for the entire scenario space in a das
 \end{res}
 
 
-The base scenario reflects a case when \textbf{10\%} (on volumetric basis) of commertial \& industrial consumers in \textbf{Ireland} in \textbf{2025} voluntrary commits to 24/7 clean electricity procurement goal.
+The base scenario reflects a case when \textbf{10\%} (on volumetric basis) of \gls{ci} consumers in \textbf{Ireland} in \textbf{2025} voluntrary commits to 24/7 clean electricity procurement goal.
 This assumption yields 220~MW of \textbf{base load} that has to be matched with clean electricity. 
-The participating consumers can achieve the \gls{cfe} procurement goal by co-optimizing local procurement with the \textbf{palette 1} of technologies (i.e., mature technologies available on the market now: onshore wind, solar, and battery storage), as well as by importing electrcity from the local grid.
+The participating consumers can achieve the \gls{cfe} procurement goal by co-optimizing local procurement with of mature technologies (designated as \textbf{palette~1}), i.e., technologies available on a market for commercial use as of now, such as onshore wind, utility-scale solar PV, and battery storage, as well as by importing electricity from the local grid.
 
 %some parts of this paragraph may go to methods
 \cref{fig:10-2025-IE-p1-used} shows the fraction of the fraction of hourly demand met with carbon-free electricity depending on the procurement policy that \gls{ci} consumers follow.
@@ -48,8 +48,8 @@ A \textit{reference case} depicts a case when the consumers cover their load pur
     \label{fig:10-2025-IE-p1-used}
 \end{figure}
 
-In the reference case, where \gls{ci} consumers do not procure any resources, relying purely on grid purchases, only 54\% of demand is met with clean electricity.
-100\% RES -- the best case for the annual renewable matching policy -- results in 83\% fraction. 
+In the reference case, where \gls{ci} consumers do not procure any resources, relying on grid purchases, only 54\% of demand is met with clean electricity.
+100\% RES---the best case for the annual renewable matching policy---results in 83\% fraction. 
 Consequently, 24/7~CFE targets beyond 85\% yield higher share of hourly demand met with clean electricity than 100\% annual matching policy.
 
 Another notable trend in \cref{fig:10-2025-IE-p1-used} is that \gls{ci} participants rely more on procured resources and less on grid imports with higher CFE target.
@@ -70,12 +70,10 @@ The 24/7 procurement policy with CFE targets above 85\% can help the participati
 
 Voluntary procurement of clean electricity also helps decarbonise electricity system as a whole.
 We explore this effect by plotting \co emissions in the local region of the participating consumers, i.e. Ireland.
-Without voluntary procurement, the model estimates Irish power sector carbon emissions to be at the level of 4.2~Mt\co -- see a reference case in \cref{fig:10-2025-IE-p1-zone_emissions}.
-\footnote{For comparison, \href{https://www.seai.ie/data-and-insights/seai-statistics/key-publications/co2-emissions-report/}{seai.ie} reports this value to be at 10.3~Mt\co in 2021.
-A strong decreasing trend is expected, since Irish government has set ambitious targets to achieve a low-carbon energy system \cite{SEAI}.}
+Without voluntary procurement, the model estimates Irish power sector carbon emissions to be at the level of 4.2~Mt\co -- see a reference case in \cref{fig:10-2025-IE-p1-zone_emissions}.\footnote{For comparison, \href{https://www.seai.ie/data-and-insights/seai-statistics/key-publications/co2-emissions-report/}{seai.ie} reports this value to be at 10.3~Mt\co in 2021. A strong decreasing trend is expected, since Irish government has set ambitious targets to achieve a low-carbon energy system \cite{SEAI}.}
 The modelling results show that if only 10\% of \gls{ci} electricity demand commits to 100\% 24/7 carbon-free electricity in 2025, it would reduce Irish emissions by 0.6~Mt\co per year compared to the scenario with no voluntary procurement.
 This reduction is equivalent to 14\% of Irish power sector emissions.
-100\% annual renewable matching policy can also deliver system-level \co emissions reductions (left bar in \cref{fig:10-2025-IE-p1-zone_emissions}); however, beyond 85\% CFE target, 24/7 hourly matching achieves greater emissions reductions than 100\% annual mathing policy.
+100\% annual renewable matching policy can also deliver system-level \co emissions reductions (left bar in \cref{fig:10-2025-IE-p1-zone_emissions}); however, beyond 85\% CFE target, 24/7 hourly matching achieves greater emissions reductions than 100\% annual mathing.
 
 \begin{figure}
     \centering
@@ -84,11 +82,11 @@ This reduction is equivalent to 14\% of Irish power sector emissions.
     \label{fig:10-2025-IE-p1-zone_emissions}
 \end{figure}
 
-The following analysis reveals the \gls{cfe} procurement strategies by participating consumers for each procurement policy.
-\cref{fig:10-2025-IE-p1-ci_capacity} shows that for 10\% of \gls{ci} load in Ireland (220 MW), the 100\% RES policy is cost-optimally met with 1.3~GW of onshore wind and solar generators.
-Matching demand with clean generation on 24/7 hourly basis requires a much bigger portfolio of wind and solar than the 100\% RES policy.
-Also, for CFE target above 85\% the cost-optimal procurement sees battery storage enter the portfolio mix.
-Note that for 80\% CFE target, 24/7 participating consumers procure less capacity than for 100\% annual matching policy, as it relies more on grid imports.
+The following analysis reveals the modelled cost-optimal procurement strategies for each \gls{cfe} policy.
+\cref{fig:10-2025-IE-p1-ci_capacity} shows that for 10\% of \gls{ci} load in Ireland (220 MW), the 100\% annual matching policy is met by onshore wind and solar PV generators with combined capacity of 1.3~GW.
+Matching demand with clean generation on hourly basis requires a much bigger portfolio of wind and solar than the annual matching policy, up to 4.0~GW of combined capacity to reach the 100\%~CFE.
+Batteries are included in the cost-optimal portfolio mix when CFE targets are above 85\%.
+Note that for 80\% CFE target, 24/7 participating consumers procure less capacity than for 100\% annual matching policy, as they rely more on grid imports.
 
 The breakdown of costs associated with a procurement policy that participating consumers choose is shown in \cref{fig:10-2025-IE-p1-ci_costandrev}.
 Note that revenues from selling the excess electricity to the regional grid at market prices can be treated as ”negative costs” and subtracted from the net procurement cost.
@@ -200,8 +198,9 @@ In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable ma
 While we have focused on base scenario reflecting the case of Ireland, exactly the same modelling exercise can be repeated for other regions of the European electricity grid.
 Since each region has a unique set of characteristics that depend on local resources, renewable potentials, national energy and climate policies, and degree of interconnections, such sensitivity can allow for generalising the impact of 24/7 CFE procurement void regional differences.
 
-\cref{fig:10-2025-DEPL-p3-4plots} shows results for the two selected regions: Germany and Poland. Germany is selected as it the largest electricity consumer in Europe and it is well interconnected to regions with clean electrcity grids, such as France and Denmark. 
-Poland—a country with  historic dependency on domestic coal resources, resistance from the coal industry and lack of governmental support for renewable energy—is selected for a contrast. To keep other factors constant, the same 10\% share of \gls{ci} consumers is set to participate in voluntary clean electricity procurement.%
+\cref{fig:10-2025-DEPL-p3-4plots} shows results for the two selected regions: Germany and Poland. 
+Germany is selected as it the largest electricity consumer in Europe that is well interconnected to regions with relatively clean grids, such as France and Denmark.
+Poland---a country with  historic dependency on domestic coal resources, resistance from the coal industry and lack of governmental support for renewable energy---is selected for a contrast. To keep other factors constant, the same 10\% share of \gls{ci} consumers is set to participate in voluntary clean electricity procurement.%
 \footnote{10\% participation rate of \gls{ci} sector yields load of 3.8~GW in Germany and 1.1~GW in Poland.}
 
 Despite regional differences, the dynamics of 24/7 CFE procurement, observed in the example of Ireland, show similar trends. 
