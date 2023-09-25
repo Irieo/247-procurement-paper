@@ -72,11 +72,12 @@
 \newdefinition{rmk}{Remark}
 \newtheorem{thm}{Theorem}
 \newtheorem{lem}[thm]{Lemma}
-\newmdtheoremenv[
-  backgroundcolor=Wheat, % Background color
-  linewidth=0.5pt, % Width of the line around the box
-  frametitlefont=\normalfont\bfseries, % Font for the box title
-]{res}[thm]{Result}
+\newtheorem{res}[thm]{Result}  % Result w/o box env
+%\newmdtheoremenv[
+%  backgroundcolor=Wheat, % Background color
+%  linewidth=0.5pt, % Width of the line around the box
+%  frametitlefont=\normalfont\bfseries, % Font for the box title
+%]{res}[thm]{Result}
 
 % acronyms
 \makeglossaries
