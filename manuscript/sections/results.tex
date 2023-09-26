@@ -43,7 +43,7 @@ A \textit{reference case} depicts a case when the consumers cover their load pur
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/used.pdf}
+    \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p1/used.pdf}
     \caption{Fraction of hourly demand met with carbon-free electricity.}
     \label{fig:10-2025-IE-p1-used}
 \end{figure}
@@ -57,13 +57,14 @@ When CFE target approaches 100\%, \gls{ci} consumers cannot rely on electricity 
 
 \cref{fig:10-2025-IE-p1-ci_emisrate} shows how choice of a procurement policy affects the average emissions rate of \gls{ci} consumers.
 Already in 2025, Ireland has a moderately clean electricity system: the emission rate is at 177~g\co/kWh in the reference case. 
-If \gls{ci} consumers follow 100\% RES goal and procure enough renewable recourses, the emission rate is reduced to 60~g\co/kWh.
+If \gls{ci} consumers follow 100\% annual matching policy and procure enough renewable energy, the emission rate is reduced to 60~g\co/kWh.
 This yields a considerable emission rate reduction compared to the reference case.
-The 24/7 procurement policy with CFE targets above 85\% can help the participating consumers to reduce emissions further, or eliminate them competely in the case of 100\% 24/7~CFE.
+The 24/7 procurement policy with CFE targets above 85\% helps the participating consumers to reduce emissions further beyond the treshhold set by the 100\% annual matching with renewable energy. 
+At the 100\% CFE target, participating consumers attain a zero emission rate associated with their electricity consumption, as they perfectly align demand and clean generation on an hourly basis.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/ci_emisrate.pdf}
+    \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p1/ci_emisrate.pdf}
     \caption{Average emissions rate of participating consumers.}
     \label{fig:10-2025-IE-p1-ci_emisrate}
 \end{figure}
@@ -77,7 +78,7 @@ This reduction is equivalent to 14\% of Irish power sector emissions.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{plots/10/2025/IE/p1/zone_emissions.pdf}
+    \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p1/zone_emissions.pdf}
     \caption{\co emissions in the local region (Ireland).}
     \label{fig:10-2025-IE-p1-zone_emissions}
 \end{figure}
@@ -135,22 +136,26 @@ Battery storage technology is cost-optimal for shifting surplus a power supply b
 However, bridging extended periods of low wind and sun with battery storage is expensive.
 Results above also illustrate that for CFE targets of 98\%--100\%, 24/7 participating consumers rely little on the grid supply, since electricity mix in the local grids contain some carbon content.
 
+%TODO CCS has to be defined first above
 The results in \cref{fig:10-2025-IE-p23-ci_procurement} reflect a case when 24/7~CFE participants have an access to a wider palette of technologies: 
-long-duration energy storage (\gls{ldes}) and advanced clean firm generators, such as advanced geothermal systems, advanced nuclear or Allam cycle generators with carbon capture and sequestration.
+long-duration energy storage (\gls{ldes}) and advanced clean firm generators, such as advanced geothermal systems, advanced nuclear or Allam cycle generators with \gls{ccs}.
 
-The top row shows the power capacity portfolio (\cref{fig:10-2025-IE-p2-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p2-ci_costandrev}) for a case when \gls{ci} consumers have an access to \textbf{palette~2} technologies, i.e., the \gls{ldes} system is also available on a market.%
+%TODO maybe remove footnote when tech cost table is there
+The top row shows the power capacity portfolio (\cref{fig:10-2025-IE-p2-ci_capacity}) and the breakdown of costs (\cref{fig:10-2025-IE-p2-ci_costandrev}) for a case when \gls{ci} consumers have an access to \textbf{palette~2} technologies, i.e., the \gls{ldes} complements onshore wind, solar PV and battery storage.%
 \footnote{Here we assume 2.5~\euro/kWh underground hydrogen storage in salt caverns.}
 The \gls{ldes} helps to align the load with the generation of procured variable renewable resources. 
 As a result, the cost-optimal portfolio of renewable capacity for the 100\% 24/7 CFE target is not much larger than for the 100\% annual matching policy. 
-This also significantly decreases procurement costs at high CFE targets: 100\% 24/7~CFE has a cost premium of 42\% above 100\% annual renewable mathing policy.
+This also significantly decreases procurement costs at high CFE targets: with \gls{ldes}, 100\% 24/7~CFE has a cost premium of 42\% above 100\% annual mathing with renewable energy.
 
-The bottom row shows the results for technological \textbf{palette 3} scenario (\cref{fig:10-2025-IE-p3-ci_capacity} and \cref{fig:10-2025-IE-p3-ci_costandrev}). 
-The procurement strategy now includes the Allam cycle generator.
-The clean firm technology can be operated any time of the year and thus helps to fill in the gaps in variable renewable generation to match demand and clean generation on hourly basis.
-Inclusion of clean firm generation also reduces renewable capacity and storage requirements. 
+The bottom row shows the results for the \textbf{palette~3} scenario (\cref{fig:10-2025-IE-p3-ci_capacity} and \cref{fig:10-2025-IE-p3-ci_costandrev}). 
+In this scenario, 24/7~CFE participants have an access to the palette~2 technologies, as well as the clean firm generators, such as advanced geothermal and Allam cycle generators.
+In the case of Ireland, the procurement strategy now includes the Allam cycle technology in the optimal mix.
+The clean firm technology helps to fill in the gaps in variable renewable generation to match demand and clean generation on hourly basis.
+Inclusion of clean firm generation reduces renewable capacity and storage requirements. 
 This, in turn, further limits the 24/7 CFE cost premium.
-In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable mathing.
+In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable matching.
 
+%TODO remove two capacity figs for space reduction? adjust text
 \begin{figure*}
     \centering
     \begin{subfigure}{0.5\textwidth}
@@ -195,34 +200,36 @@ In this scenario, 100\% 24/7~CFE costs only 15\% above 100\% annual renewable ma
     Despite these differences, the model results for 24/7 clean energy procurement show similar trends. 
 \end{res}
 
-While we have focused on base scenario reflecting the case of Ireland, exactly the same modelling exercise can be repeated for other regions of the European electricity grid.
+While we have focused on base scenario reflecting the case of Ireland, the same modelling exercise can be repeated for other regions of the European electricity grid.
 Since each region has a unique set of characteristics that depend on local resources, renewable potentials, national energy and climate policies, and degree of interconnections, such sensitivity can allow for generalising the impact of 24/7 CFE procurement void regional differences.
 
-\cref{fig:10-2025-DEPL-p3-4plots} shows results for the two selected regions: Germany and Poland. 
-Germany is selected as it the largest electricity consumer in Europe that is well interconnected to regions with relatively clean grids, such as France and Denmark.
-Poland---a country with  historic dependency on domestic coal resources, resistance from the coal industry and lack of governmental support for renewable energy---is selected for a contrast. To keep other factors constant, the same 10\% share of \gls{ci} consumers is set to participate in voluntary clean electricity procurement.%
+\cref{fig:10-2025-DEPL-p3-4plots} shows the results for the two selected regions: Germany and Poland. 
+Germany is selected because it is the largest electricity consumer in Europe and has a good connection to regions with relatively clean grids, like France and Denmark. 
+As an example of the contrast, Poland is chosen because of its historical reliance on coal resources, resistance from the coal industry, and lack of government support for renewable energy.
+The participation rate of 24/7~CFE consumers is set at 10\% of the \gls{ci} sector in each country, as in the base scenario.%
 \footnote{10\% participation rate of \gls{ci} sector yields load of 3.8~GW in Germany and 1.1~GW in Poland.}
 
-Despite regional differences, the dynamics of 24/7 CFE procurement, observed in the example of Ireland, show similar trends. 
+The dynamics of 24/7 CFE procurement, observed above, appear similar despite regional differences.
 
-As can be expected, the cleaner grid in the German case results in a lower value of the average emissions rate of participating consumers than in the case of Poland. 
-The values in the reference case are at 240~g\co/kWh and 549~g\co/kWh for Germany and Poland, respectively.%
-\footnote{For reference, 2021 estimates for emission intensity of electricity generation are 402~g\co/kWh in Germany and 750~g\co/kWh Poland \cite{EEA-europa-web}.}
-Similar to the Irish results, \cref{fig:10-2025-DE-p3-ci_emisrate} and \cref{fig:10-2025-PL-p3-ci_emisrate} show that in both cases, \gls{ci} participants achieve lower emissions rates with 24/7 hourly CFE procurement than with 100\% annual matching once CFE target is tight enough. 
-As expected at 100\% CFE target, participating consumers achieve a zero emission rate associated to their electricity consumption, since they perfectly match demand and clean generation on hourly basis.
+German consumers have lower average emissions rates due to a cleaner grid than Polish consumers, as one would expect.
+In the reference case of grid electricity procurement, the values are at 240~g\co/kWh and 549~g\co/kWh for Germany and Poland, respectively.%
+\footnote{For reference, 2021 data for emission intensity of electricity generation was at 402~g\co/kWh in Germany and 750~g\co/kWh Poland \cite{EEA-europa-web}.}
+Similar to the Irish results, \cref{fig:10-2025-DE-p3-ci_emisrate} and \cref{fig:10-2025-PL-p3-ci_emisrate} show that in both cases, \gls{ci} participants achieve lower emissions rates with 24/7 hourly CFE procurement than with 100\% annual matching with renewable energy once their CFE targets are tight enough. 
 
 A result that stands out in the cases of Germany and Poland is the impact of the 24/7 hourly CFE procurement on the system-level \co emissions, as shown in \cref{fig:10-2025-DE-p3-zone_emissions} and \cref{fig:10-2025-PL-p3-zone_emissions}.
 Without any CFE procurement stategy, the German and Polish power sector carbon emissions are at 118.8~Mt\co and 83.8~Mt\co in 2025, respectively.%
-\footnote{Germany is a larger electricity consumer, while Polish electricity mix has much a higher emission intensity; thus, power sector carbon emissions are on a similar scale for these regions.} 
-If only 10\% of C\&I load joins efforts of voluntary \gls{cfe} procurement, a significant decarbonisation impact is achieved. 
-For example in Germany, with this participation, the 100\% annual matching with renewable electricity can reduce system-level \co emissions by 11.1~Mt\co per year. 
-With the 24/7 hourly matching, C\&I consumers achieve even greater impact on emissions, up to 14~Mt\co per year with CFE 100\% target.
+\footnote{Germany is a larger electricity consumer, while Polish electricity mix has much a higher emission intensity; thus, power sector carbon emissions are on a similar scale for these countries.} 
+If C\&I load commits to voluntary clean energy procurement beyond \gls{necp}s, a significant decarbonisation impact is achieved. 
+The modelling results provides insightful data.
+For example, in Germany, with just 10\% \gls{ci} participation rate, the 100\% annual matching with renewable energy can reduce national emissions by 11.1~Mt\co/a; the 24/7 hourly matching policy yields even greater impact, up to 14~Mt\co/a with CFE 100\% target.
 
-\cref{fig:10-2025-DE-p3-ci_costandrev} and \cref{fig:10-2025-PL-p3-ci_costandrev} also show similar trends to the base scenario. 
-For lower CFE targets, participating consumers can complement portfolio with electricity imports from grid. To achieve higher CFE targets, an clean firm generatorion is added to the portfolio, which greatly reduces the need for renewable generation capacity to match load on an hourly basis. 
-In the case of Germany and Poland, both the Allam cycle generator with CCS and advanced dispatchable generator enter the optimal procurement strategy. 
-This is likely due to a case that these regions are better interconnected with the rest of the European electrcity grid than Ireland. 
+The results for the required portfolio capacity-/costs are shown in \cref{fig:10-2025-DE-p3-ci_costandrev} and \cref{fig:10-2025-PL-p3-ci_costandrev}.
+24/7 consumers in Germany and Poland complement procurement of renewable energy with electricity imports from grid for low CFE targets. 
+To achieve higher CFE targets, Allam cycle with \gls{ccs} and advanced clean firm generators enter the technology mix. 
+The fact that both advanced technologies enter the optimal solution space is different to Irish results, where only the Allam cycle is cost-optimal. 
+This likely due to a case that Germany and Poland are better interconnected with the rest of the European electrcity grid than Ireland. 
 A better interconnection makes possible to exhaust all arbitrage opportunities across time and space and maximise the dispatch value from an advanced dispatchable generator with low variable costs.
+Similarly to Irish results though, the cost premium of 24/7 hourly matching is small when the advanced technologies are available.  
 
 \begin{figure*}
     \centering
@@ -270,7 +277,7 @@ A better interconnection makes possible to exhaust all arbitrage opportunities a
 \end{figure*}
 
 
-\subsection{Moving five years more ahead}
+\subsection{Advancing five years forward}
 \label{subsec:time}
 
 \vspace{10pt}
@@ -284,35 +291,38 @@ A better interconnection makes possible to exhaust all arbitrage opportunities a
     cleaner grids. Similarly to the base scenario, 24/7 hourly matching results in deeper decarbonisation than 100\% annual renewable matching if CFE targets are above certain treshhold.
 \end{res}
 
-In the scenarios above, we have been exploring 24/7 clean electricity procurement within the European electricity system, with a focus on the year 2025. 
-In this section, we shift our attention to the results and implications of these procurement strategies for the year 2030. 
-This will provide a deeper understanding of the long-term effects and the potential evolution of clean energy procurement across Europe, as companies continue to adapt their procurement strategies to achieve carbon-free energy goals.
+We explored the means, costs, and impacts of clean electricity procurement in the European electricity system for the year 2025 in the sections above.
+In this section, we examine the results and implications of these procurement strategies for 2030.
+Ultimately, this will allow us to better understand the long-term effects and the potential evolution of clean energy procurement in Europe, as companies continue to adapt their procurement strategies.
 
-From the modelling perspective, many system parameters change with a five year step to 2030. 
-In particular, the technology costs decline due to economics of scale and incremental innovation, national energy- and climate policies become more tight, and some legacy power plants leave the market. 
-An overarching feature of the five-year step is a cleaner state of the electricity grids.
+A five-year step to 2030 changes many system parameters from a modelling perspective.
+In partcular, technology costs decline as a result of economies of scale and incremental innovation, energy- and climate policies become tighter, and some legacy power plants go out of business.
+The two key trends of advancing five years forward are cleaner electricity grids and lower costs for energy technologies.
 
-\cref{fig:10-2030-IE-6plots} illustrates the results for the "base scenario" moved five years into the future to 2030, with all other factors held constant. 
+\cref{fig:10-2030-IE-6plots} illustrates the results for \textit{base scenario} moved five years to 2030, with all other factors held constant. 
 
-\cref{fig:10-2030-IE-p1-used} shows the fraction of hourly demand met with clean electricity for each procurement policy -- now in 2030. 
-There two observations from comparing these results with a base scenario.
-First, in the reference case, 72\% of demand is met with CFE, which is 18\% more than in 2025, which is a result of a cleaner electricity grid on a background. 
-Thus, lower CFE targets (such as 80\%) are met with a larger share of grid imports. 
-Second, higher CFE targets still require a independency from grid imports for the perfect match of clean electricity with \gls{ci} load on hourly basis. 
-At 100\% 24/7 CFE, participating consumers rely only on procured resources.
+\cref{fig:10-2030-IE-p1-used} shows the fraction of hourly demand met by clean electricity under each procurement policy in 2030.
+Two observations can be drawn from comparing these results with a base scenario.
+The first is that 72\% of demand is met by CFE in the reference case, which is 18\% greater than in 2025, i.e., there is a cleaner electricity grid on a background.
+Therefore, lower CFE targets (such as 80\%) are achieved by importing more electricity.
+Second, 24/7 participants continue to rely primarily on their own procurement of \gls{cfe} resources and storage, without importing much from the background grid to reach higher CFE targets.
 
-The average emissions rate of 24/7 participating consumers is intuitively lower with a cleaner regional network. 
+A cleaner background grid results in lower average emissions rates for 24/7 participants. 
 As shown in \cref{fig:10-2030-IE-p1-ci_emisrate}, the reference case value is reduced from 240~g\co/kWh in 2025 to 107~g\co/kWh in 2030.
-The dynamics of 24/7 CFE procurement remains also in 2030. An hourly 24/7 matching allows for net-zero emissions associated with the \gls{ci} buyers' consumption, with a lower emission rate than 100\% annual matching already at 90\% CFE target.
-An interesting result is that a CFE target of 90\% yields lower \gls{ci} emission rate, although costs the same as the 100\% annual matching for all three technological palettes (see \cref{fig:10-2030-IE-p1-ci_costandrev}--\cref{fig:10-2030-IE-p1-ci_costandrev}). 
+The hourly matching policy allows achieving zero emissions associated with \gls{ci} participants consumption.
+It is interesting to note that a CFE target of 90\% yields lower average emissions than a 100\% annual matching policy, even though these policies are both equally costly (see \cref{fig:10-2030-IE-p1-ci_costandrev}--\cref{fig:10-2030-IE-p3-ci_costandrev}).
 
-\cref{fig:10-2030-IE-p1-zone_emissions} show that both 100\% annual matching with renewable energy and the 24/7 hourly matching with \gls{cfe} keep positive effect on system-level emissions even in cleaner system. 
-Similarly to 2025, if CFE target is high enough, a diverse resource portfolio procured by 24/7 participating consumers has a larger impact on net system emissions in a local zone than 100\% annual matching.
-Interestingly, in the case of 2030, 100\% 24/7 CFE nearly doubles the decarbonisation effect of 100\% annual matching: 100\% RES reduces emissions in the local zone by 0.2~Mt\co/a (8\% of Irish power section emissions), while 100\% 24/7 CFE yields reduction of 0.4~Mt\co/a. The nature of this effect is explained in \cref{subsec:mechanisms}.
+In even cleaner systems, both 100\% annual matching with renewable energy and 24/7 hourly matching with \gls{cfe} keep their positive effect on system-level emissions.
+Similar to 2025, when a CFE target is high enough, a diverse portfolio of energy resources procured by 24/7 participating consumers impacts system-level emissions more than the annual matching policy, see \cref{fig:10-2030-IE-p1-zone_emissions}.
+The hourly matching policy nearly doubles the decarbonisation effect of renewable matching in 2030: with a 10\% participation rate, annual matching reduces local emissions by 0.2~Mt\co/a (approximately 8\% of Irish power section emissions). 
+Hourly matching results in a reduction of 0.4~Mt\co/a at 100\% CFE target.
+The nature of this effect is explained in \cref{subsec:mechanisms}.
 
-The \gls{ci} cost breakdown for Ireland 2030 scenario shows that net costs for 24/7 CFE matching fall for all technological palettes. Participating consumers benefit from decreasing costs of clean technologies and cleaner state of the electricity grids.
-\cref{fig:10-2030-IE-p2-ci_costandrev} and \cref{fig:10-2030-IE-p1-ci_costandrev} show that in 2030, cost-optimal portfolio mix procured by the \gls{ci} participants for CFE 100\% target has a very limited cost premium to 100\% annual renewable matching with LDES and clean firm technologies. 
-At the same time, participanting consumers achieve a zero emission rate associated to their electricity consumption and have a bigger impact on \co emissions in the rest of the system.
+The cost breakdown for Ireland 2030 shows that 24/7 hourly matching costs are decreasing for all technological pallets compared to 2025, see \cref{fig:10-2030-IE-p1-ci_costandrev}--\cref{fig:10-2030-IE-p3-ci_costandrev}.
+The reason is that 24/7 participating consumers benefit from lower prices for clean energy technologies and cleaner electricity grids. 
+The results show that cost-optimal portfolios procured by \gls{ci} participants for the 100\% hourly matching with CFE policy have a very limited premium over the 100\% annual renewable matching, for scenarios when \gls{ldes} and advanced clean firm technologies are available. 
+Through these low cost premiums, participating consumers achieve zero emissions associated with their electricity consumption and have a great impact on system-level \co emissions.
+
 
 \begin{figure*}
     \centering
@@ -355,7 +365,7 @@ At the same time, participanting consumers achieve a zero emission rate associat
     \end{subfigure}
 
     \caption{Results for the case of Ireland 2030. 10\% participation rate. 
-    Data for the Figures \ref{fig:10-2030-IE-p1-used}--\ref{fig:10-2030-IE-p1-zone_emissions} is for the technological palette~1 scenario.}
+    Figures \ref{fig:10-2030-IE-p1-used}--\ref{fig:10-2030-IE-p1-ci_costandrev} display the technological palette~1 scenario.}
     \label{fig:10-2030-IE-6plots}
 \end{figure*}
 
@@ -441,7 +451,7 @@ The substitution of gas-fired capacity with clean resources procured by \gls{ci}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{plots/10/2030/DE/p1/system_capacity_diff.pdf}
+    \includegraphics[width=0.95\columnwidth]{plots/10/2030/DE/p1/system_capacity_diff.pdf}
     \caption{
     Difference in generation capacity expansion in the whole European electricity system (including \gls{ci} resources) with and without clean energy procurement. 
     Selected scenario of Germany, 2030, technological palette~1.}
