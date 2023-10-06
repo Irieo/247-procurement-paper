@@ -1,22 +1,24 @@
-In this section, we present modelling results and related analysis. 
-In the analysis, we explore how the 247-CFE and the 100\% annual renewable matching procurement approaches affect both the participating electricity buyers and the electricity system as a whole. 
-Focusing on the electricity buyers' perspective, we analyse procurement strategies (i.e. the optimal mix of locally procured capacities of energy generation and storage assets, and electricity imports from the grid), the average costs of procured electricity and carbon emissions associated with the consumers' electricity usage.
-When our focus switches to the system perspective, we describe the impact of the \gls{cfe} procurement approaches on \co emissions on the local grids, as well as the impact on back up flexibility needs.
+% TODO refine and shorten the results section
+% Maybe move some of the graphs to the annex
+% and all other graphs to a dashboard
 
-We aim to generalize our findings on 24/7 procurement void individual assumptions by incorporating a large scenario space into the study design.
+Throughout the analysis, we examine how voluntary clean electricity procurement strategies affect both buyers and the electricity system as a whole.
+From the \gls{ci} buyers' perspective, we examine optimal procurement strategies (i.e., a mix of locally procured energy generation and storage assets and electricity imports), the average cost of procured electricity and the carbon emissions associated with electricity usage (also known as Scope 2 emissions).
+From a system perspective, we analyze how voluntary clean energy procurement impacts \co emissions in the region and the \enquote{demand pull} for advanced energy technologies.
+
+Our experimental setup incorporates a large scenario space so that we can generalize our results void of individual assumptions.
 For convenience, we start with a \textit{base scenario} presented in \cref{subsec:base}.
-Afterwards, we explore the scenario space further by presenting selected results that answer the following questions:
-\begin{enumerate}[(i)]
-\item What if clean electricity buyers have an access to a wider palette of carbon-free technologies that are expected to be available for a commercial scale up in the near future (\cref{subsec:palette})?
-\item What if electricity buyers are located in parts of the European electricity grid that are much different to the base scenario? (\cref{subsec:location})?
-\item What if electricity procurement takes place in 2030 instead of 2025 (\cref{subsec:time})? 
-\item Finally, in \cref{subsec:mechanisms}, we explore how exactly 24/7 CFE commitments help to decarbonize local grids and reveal the individual mechanisms behind this effect that are present across the scenario space.
+Afterwards, we explore scenario space further to answer the following questions:
+
+\begin{enumerate}[-]
+\item \cref{subsec:palette}: What if a wider palette of carbon-free technologies were available to participating buyers?
+\item \cref{subsec:location}: What if participating buyers are located in areas of the European electricity grid that differ significantly from the base scenario?
+\item \cref{subsec:time}: What are the implications if we move the timeframe ahead five years to 2030?
+\item Finally, in \cref{subsec:mechanisms}, we get a closer look at how 24/7 CFE commitments can help decarbonize local grids and reveal the individual mechanisms involved.
 \end{enumerate}
 
-In the \nameref{sec:discussion}, we summarise our findings for the four questions above and have a look beyond the focus of the model scenarios discussed in the main part of the paper by integrating observations from sensitivity analyses relating to the participation rates of electricity buyers and their diverse consumption profiles, providing an overarching look at the 24/7 procurement and impacts on the electrcity systems.
-
-Given the large scenario space, the manuscript presents results for selected scenario branches that generalise system impacts of 24/7 hourly clean electricity procurement.
-For interested reader, we provide results for the entire scenario space in a dashboard that is published online alongside this study, see \nameref{sec:code}.
+Given the large scenario space, the manuscript presents results for selected scenario branches that generalise system impacts of the 24/7~CFE procurement.
+For interested readers, we have published an online dashboard with results for the entire scenario space, see \nameref{sec:code}.
 
 \subsection{Base scenario}
 \label{subsec:base}
@@ -404,25 +406,29 @@ Thus, in the countries where governments commit to ambitious \gls{necp} targets,
 It is because the profile mechanism remains relevant even when renewable energy generators are self-cannibalizing; whereas the volume mechanism is amplified due to the diverse portfolio of procured resources, including batteries, long-term energy storage, and advanced clean firm technologies. As a result, clean electricity can be available during times when wind and solar generation is scarce system-wide.
 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \begin{subfigure}[t]{0.95\columnwidth}
+
+    \begin{subfigure}[t]{\columnwidth}
         \centering
         \caption{Emissions reduction in a local zone with profile and volume mechanisms isolated. Data is normalised per MWh of demand participating in 24/7 procurement.}
         \includegraphics[width=0.95\columnwidth]{normalized_effects.pdf}
         \label{fig:10-profile-volume.pdf}
     \end{subfigure}
-    \begin{subfigure}[t]{0.95\columnwidth}
+
+    \begin{subfigure}[t]{\columnwidth}
         \centering
         \caption{Percentage of emissions reductions in a local zone as a result of a procurement policy compared with the no procurement policy case.}
         \includegraphics[width=0.95\columnwidth]{emissions_reduction_comparison.pdf}
         \label{fig:10-hourly-annual.pdf}
     \end{subfigure}
+
     \caption{
         System-level emission reduction: comparison of procurement policies and isolation of decarbonisation mechanisms.
         \cref{fig:10-profile-volume.pdf} shows breakdown of emissions reduction in a local zone if 10\% of \gls{ci} load follows 24/7 hourly procurement with CFE 100\% target. The profile are volume mechanisms are isolated.
         \cref{fig:10-hourly-annual.pdf} compares reductions in annual zone emissions in percent points achieved through 100\% annual renewable matching and 100\% 24/7 CFE matching; no procurement policy is assumed in the counterfactual scenario.}
-    \label{fig:decarbonisation_story}
+        \label{fig:decarbonisation_story}
+
 \end{figure}
 
 
