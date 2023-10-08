@@ -1,20 +1,44 @@
-\textbf{Sketch methods - to refine}
+The modelling workflow is based on the PyPSA --- an open-source software framework for simulating and optimising modern energy systems \cite{brownPyPSAPythonPower2018}. 
 
-Methodologically, our modelling workflow is based on the PyPSA (Python for Power System Analysis)\footnote{PyPSA is available at \url{https://github.com/PyPSA/PyPSA}}—an open-source software toolbox for simulating and optimising modern energy systems at high resolution maintained by TU Berlin \cite{brownPyPSAPythonPower2018,horschPyPSAEurOpenOptimisation2018}. 
-The model developed for this study optimises investment and operational decisions to meet projected electricity demand for the consumers performing clean energy procurement, as well as the demand for other consumers in the European electricity system, while meeting all relevant engineering, reliability, and policy constraints. 
-This project is also developed as open-source.\footnote{247-CFE code is available at  \url{https://github.com/PyPSA/247-cfe}}
+\textbf{Optimisation model --} The simulations were carried out with the modified version of the PyPSA-Eur model \cite{PyPSA-Eur-github}. 
+The objective of the model is to minimise the annualised system-wide costs of meeting electricity demand within the modelled system, while adhering to all relevant engineering, reliability, and policy constraints.
+The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year. This is standard for the PyPSA-Eur model \cite{horschPyPSAEurOpenOptimisation2018} and the long-term energy planning models of this class \cite{jenkinsGenX2022, howellsOSeMOSYSOpenSource2011}.
 
-In this study, we implement a set of new constraints to model a situation when a fraction of corporate and industry (C\&I) demand commit to the 24/7-CFE goal. 
-These constraints ensure that a portfolio of carbon-free generation located in the same market as the participating C\&I consumers covers their electricity demand profiles every hour of every day. 
-The mathematical implementation allows for examining a scenario space when different shares of demand pursue the 24/7 approach with varying thresholds for meeting the hourly clean energy requirement (e.g. 90\%, 95\%, 100\%) using the definitions provided in Google's paper on methodologies and metrics \cite{google-methodologies}.
+\textbf{Clean energy procurement --} We introduce a set of new constraints to model the situation when a fraction of corporate and industry demand commits to voluntary clean energy procurement. %continue here
 
-For comparison, we also model a benchmark scenario where the C\&I consumers meet their annual energy demand on a volumetric basis with renewable energy procurement (the 100\% annual matching), as well as the scenario with no voluntary procurement of carbon-free energy.
+The 24/7~CFE procurement framework is based on the methodologies and metrics paper by Google (2021) \cite{google-methodologies}.
+The framework considers various \gls{cfe} supply options, including procured generation resources, operation of storage assets, and electricity imports from the local grid. 
+The framework also allows for controlling the quality score of the 24/7~CFE procurement by setting the threshold for the minimum share of hours when the hourly \gls{cfe} supply meets the hourly electricity demand. 
+The complete mathematical formulation of the 24/7~CFE procurement is provided in the \nameref{sec:si}.
 
+\textbf{Model scope --} text
+% European electricity system
+% Only electricity sector
+% 4 regions
+% etc.
+
+\textbf{Model inputs --} text
+% Technology assumptions
+
+
+\textbf{Procurement strategies in scope --} We model and compare two procurement strategies: 
+
+\begin{itemize}[-]
+    \item 100\% annual matching, where participating buyers meet their annual energy demand on volumetric basis with additional renewable energy procurement;
+    \item 24/7 hourly matching, where participating buyers optimise their investment and operational decisions mixing \gls{cfe}procurement of additional resources and electricity imports so that \gls{cfe} supply meets electricity demand 24/7 throughout the year with the desired quality score;
+    \item For benchmarking, we also model a reference case, where participating buyers have no voluntary environmental commitments and get all their electricity from the local grid.
+\end{itemize}
+
+We setup the study design so that both procurement strategies are modelled under the same conditions.
+In both cases (i) procurement is possible with generators from the same bidding zone only (i.e., we model the \enquote{best case} of the annual matching strategy); (ii) the same set of consumers participate; (iii) the same set of constraints is applied to the rest of the electricity system.
+
+\textbf{Carbon-free energy technologies in scope --} text
+
+
+\textbf{Other scenarios --}
 Finally, we model scenarios where C\&I consumers are located in different national markets across Europe. 
 Thus, we aim to generalise the impacts of 24/7-CFE procurement, accounting for the different patterns of electricity demand, weather, availability of renewable resources, existing electricity generation capacity, and national climate- and energy policies, among other factors.
 
+
 \subsection{Scenario space}
 \label{subsec:scenarios}
-
-%TODO tech abbrev have to be defined here
-% CCS and LDES 
