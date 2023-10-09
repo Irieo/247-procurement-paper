@@ -1,44 +1,59 @@
 The modelling workflow is based on the PyPSA --- an open-source software framework for simulating and optimising modern energy systems \cite{brownPyPSAPythonPower2018}. 
 
 \textbf{Optimisation model --} The simulations were carried out with the modified version of the PyPSA-Eur model \cite{PyPSA-Eur-github}. 
-The objective of the model is to minimise the annualised system-wide costs of meeting electricity demand within the modelled system, while adhering to all relevant engineering, reliability, and policy constraints.
+The objective of the model is to minimise the annualised system-wide costs of meeting energy demand within the modelled system, while adhering to all relevant engineering, reliability, and policy constraints.
 The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year. This is standard for the PyPSA-Eur model \cite{horschPyPSAEurOpenOptimisation2018} and the long-term energy planning models of this class \cite{jenkinsGenX2022, howellsOSeMOSYSOpenSource2011}.
 
-\textbf{Clean energy procurement --} We introduce a set of new constraints to model the situation when a fraction of corporate and industry demand commits to voluntary clean energy procurement. %continue here
+\textbf{Clean energy procurement --} We introduce new model components (parameters, variables, constraints) to model voluntary clean energy procurement.
+By incorporating these into the mathematical problem, we model a situation when a fraction of electricity demand in a particular bidding zone is committed to procuring additional clean energy with a desired strategy.
+The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, unless otherwise stated (hereinafter referred to as \enquote{participating consumers}).
+Accordingly, the model co-optimises the procurement and operational decisions of the participating consumers to meet their electricity demand in accordance with the procurement strategy they have chosen.
+The mathematical formulation of the clean energy procurement model is provided in the \nameref{sec:si}.
 
 The 24/7~CFE procurement framework is based on the methodologies and metrics paper by Google (2021) \cite{google-methodologies}.
-The framework considers various \gls{cfe} supply options, including procured generation resources, operation of storage assets, and electricity imports from the local grid. 
-The framework also allows for controlling the quality score of the 24/7~CFE procurement by setting the threshold for the minimum share of hours when the hourly \gls{cfe} supply meets the hourly electricity demand. 
-The complete mathematical formulation of the 24/7~CFE procurement is provided in the \nameref{sec:si}.
+The framework considers various \gls{cfe} supply options for the participating consumers, including procurement of own generation resources and storage assets, and electricity imports from the local grid.
+The framework also allows for controlling \textit{the quality score} of the 24/7~CFE procurement by setting the threshold for the minimum share of hours when the hourly \gls{cfe} supply meets the hourly electricity demand. 
 
-\textbf{Model scope --} text
-% European electricity system
-% Only electricity sector
-% 4 regions
-% etc.
+\textbf{Model scope --} Geographically, the model encompasses the entire \gls{entsoe} area, which covers the entire European electricity system.\footnote{Islands that are not connected to the main European system, such as Malta, Crete and Cyprus, are excluded from the model.}
+In this study, electricity demand, supply and power transmission infrastructure\footnote{Alternating current lines at and above 220kV voltage level and all high voltage direct current lines.} are clustered to 37 individual bidding zones \cite{PyPSAEur-docs-spatialresolution}. 
+Thus, each zone represents a country; some countries straddling different synchronous areas are split into individual bidding zones, such as DK1 (West) and DK2 (East).
+The participating consumers can be located in either of the four selected zones: Ireland, Denmark (zone DK1), Germany, or Poland.
+The comparison of results across these zones allows us to generalize the implications of of voluntary clean energy procurement, taking into account factors such as electricity demand, weather, availability of renewable resources, existing electricity generation capacity mix, and national energy policies, among other factors.
 
-\textbf{Model inputs --} text
-% Technology assumptions
-
+We model two individual years: 2025 and 2030. 
+From a modelling perspective, a five-year step changes many system parameters.
+In particular, technology costs decline as a result of economies of scale and incremental innovation, \gls{necp}s become tighter, and some legacy power plants go out of business.
+The problem is solved with a temporal resolution of 2920 snapshots, representing a 3-hourly average of the hourly time-series data.
 
 \textbf{Procurement strategies in scope --} We model and compare two procurement strategies: 
 
 \begin{itemize}[-]
-    \item 100\% annual matching, where participating buyers meet their annual energy demand on volumetric basis with additional renewable energy procurement;
-    \item 24/7 hourly matching, where participating buyers optimise their investment and operational decisions mixing \gls{cfe}procurement of additional resources and electricity imports so that \gls{cfe} supply meets electricity demand 24/7 throughout the year with the desired quality score;
-    \item For benchmarking, we also model a reference case, where participating buyers have no voluntary environmental commitments and get all their electricity from the local grid.
+    \item \textit{100\% annual matching}: participating buyers meet their annual energy demand on volumetric basis with additional renewable energy procurement;
+    \item \textit{24/7 hourly matching}: participating buyers optimise their investment and operational decisions mixing procurement of additional generation and storage resources and electricity imports so that \gls{cfe} supply meets electricity demand 24/7 throughout the year with the desired quality score;
+    \item For benchmarking, we also model \textit{a reference case}: participating buyers have no voluntary environmental commitments and get all their electricity from the local grid.
 \end{itemize}
 
 We setup the study design so that both procurement strategies are modelled under the same conditions.
 In both cases (i) procurement is possible with generators from the same bidding zone only (i.e., we model the \enquote{best case} of the annual matching strategy); (ii) the same set of consumers participate; (iii) the same set of constraints is applied to the rest of the electricity system.
 
-\textbf{Carbon-free energy technologies in scope --} text
+\textbf{Carbon-free energy technologies in scope --} Depending on the scenario, participating consumers can choose from a variety of energy technologies available on the European market. By grouping technologies according to their maturity levels and availability on the market, we formulate three scenarios:
+
+\begin{itemize}[-]
+    \item \textit{Palette 1} -- technologies that are commercially available today: onshore wind, utility scale solar photovoltaics (\gls{PV}), and battery storage;
+    \item \textit{Palette 2} -- all above plus a long-duration energy storage (\gls{ldes}) that is expected to be commercially available in the near future; 
+    \item \textit{Palette 3} -- all above plus promising advanced technologies that are in prototype stage today, but are expected to be commercially available in the future: Allam cycle power plant with \gls{ccs}\footnote{Allam cycle is a natural gas power plant with up to 100\% of carbon capture and sequestration}, and advanced dispatchable generators---a stand-in for clean firm technologies, such as advanced geothermal (closed-loop) or advanced nuclear systems.
+\end{itemize}
 
 
-\textbf{Other scenarios --}
-Finally, we model scenarios where C\&I consumers are located in different national markets across Europe. 
-Thus, we aim to generalise the impacts of 24/7-CFE procurement, accounting for the different patterns of electricity demand, weather, availability of renewable resources, existing electricity generation capacity, and national climate- and energy policies, among other factors.
+\textbf{Technology assumptions --} 
 
+Cost and other assumptions for energy technologies available for participating consumers were taken primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in Table S1. 
+For a full list of technology assumptions, see the GitHub repository [TODO]. 
+For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion. 
+Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience. 
+We use the cost assumptions from the available literature and own indicative assumptions (see Table S1).
 
-\subsection{Scenario space}
-\label{subsec:scenarios}
+\textbf{Other assumptions --} 
+
+In all the modelled countries, renewable generation must meet the political targets as defined in the NECPs or by more recent national policy targets (such as the Easter
+package in Germany), see Table 1.
