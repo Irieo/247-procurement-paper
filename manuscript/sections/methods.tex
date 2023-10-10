@@ -8,7 +8,7 @@ The optimal solution of the model includes the location and capacity of new powe
 By incorporating these into the mathematical problem, we model a situation when a fraction of electricity demand in a particular bidding zone is committed to procuring additional clean energy with a desired strategy.
 The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, unless otherwise stated (hereinafter referred to as \enquote{participating consumers}).
 Accordingly, the model co-optimises the procurement and operational decisions of the participating consumers to meet their electricity demand in accordance with the procurement strategy they have chosen.
-The mathematical formulation of the clean energy procurement model is provided in supplementary material [\labelcref{sec:si_3}].
+The mathematical formulation of the clean energy procurement strategies is provided in the supplementary material [\labelcref{sec:si_3}].
 
 The 24/7~CFE procurement framework is based on the methodologies and metrics paper by Google (2021) \cite{google-methodologies}.
 The framework considers various \gls{cfe} supply options for the participating consumers, including procurement of own generation resources and storage assets, and electricity imports from the local grid.
@@ -33,7 +33,7 @@ The problem is solved with a temporal resolution of 2920 snapshots, representing
     \item For benchmarking, we also model \textit{a reference case}: participating buyers have no voluntary environmental commitments and get all their electricity from the local grid.
 \end{itemize}
 
-We setup the study design so that both procurement strategies are modelled under the same conditions.
+We setup the study design so that the procurement strategies are modelled under the same conditions.
 In both cases (i) procurement is possible with generators from the same bidding zone only (i.e., we model the \enquote{best case} of the annual matching strategy); (ii) the same set of consumers participate; (iii) the same set of constraints is applied to the rest of the electricity system.
 
 \textbf{Carbon-free energy technologies in scope --} Depending on the scenario, participating consumers can choose from a variety of energy technologies available on the European market. By grouping technologies according to their maturity levels and availability on the market, we formulate three scenarios:
@@ -41,12 +41,11 @@ In both cases (i) procurement is possible with generators from the same bidding 
 \begin{itemize}[-]
     \item \textit{Palette 1} -- technologies that are commercially available today: onshore wind, utility scale solar photovoltaics (\gls{PV}), and battery storage;
     \item \textit{Palette 2} -- all above plus a long-duration energy storage (\gls{ldes}) that is expected to be commercially available in the near future; 
-    \item \textit{Palette 3} -- all above plus promising advanced technologies that are in prototype stage today, but are expected to be commercially available in the future: Allam cycle power plant with \gls{ccs}\footnote{Allam cycle is a natural gas power plant with up to 100\% of carbon capture and sequestration}, and advanced dispatchable generators---a stand-in for clean firm technologies, such as advanced geothermal (closed-loop) or advanced nuclear systems.
+    \item \textit{Palette 3} -- all above plus promising advanced technologies that are in prototype stage today, but are expected to be commercially available in the future: Allam cycle power plant with \gls{ccs}\footnote{Allam cycle is a natural gas power plant with up to 100\% of carbon capture and sequestration}, and advanced dispatchable generators -- a stand-in for clean firm technologies, such as advanced geothermal or advanced nuclear systems.
 \end{itemize}
 
 \textbf{Technology assumptions --} Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in Table S1. 
 For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion. 
-Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience. 
-We use the cost estimates from the available literature and own indicative assumptions (see Table S1).
+Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience; therefore, use own indicative assumptions.
 
 \textbf{Other assumptions --} Other model inputs and key background system assumptions are provided in [\labelcref{sec:si_2}]. For a full list of technology assumptions, see the GitHub repository \cite{github-247CFEpaper}.

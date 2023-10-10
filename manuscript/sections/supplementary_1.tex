@@ -1,2 +1,47 @@
 %S1: Technology assumptions
-text
+Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata}. These assumptions are listed in \cref{tab:tech_costs}. 
+A full list of technology assumptions, including the data for energy technologies in the background energy system, is available via the reproducible scientific workflow in the GitHub repository \cite{github-247CFEpaper}.
+
+\begin{table*}[]
+    \centering
+    \resizebox{0.95\textwidth}{!}{%
+        \begin{tabular}{lccccccc}
+            \hline\hline
+            \textbf{Technology} &
+            \textbf{Year} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}CAPEX\\ (overnight cost)\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}FOM\\ {[}\%/year{]}\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}VOM\\ {[}Eur/MWh{]}\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}Efficiency\\ {[}per unit{]}\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}Lifetime\\ {[}years{]}\end{tabular}} &
+            \textbf{Source} \\ \hline\hline
+            Utility solar PV & 2025 & 612 \officialeuro/kW & 1.7 & 0.01 & - & 37.5 & \cite{DEA-technologydata} \\  
+            & 2030 & 492 \officialeuro/kW & 2.0 & 0.01 & - & 40.0 & \cite{DEA-technologydata}  \\ \hline
+            Onshore wind & 2025 & 1077 \officialeuro/kW & 1.2 & 0.015 & - & 28.5 & \cite{DEA-technologydata} \\  
+            & 2030 & 1035 \officialeuro/kW & 1.2 & 0.015 & - & 30 & \cite{DEA-technologydata} \\ \hline
+            Battery storage & 2025 & 187 \officialeuro/kWh & - & - & - & 22.5 & \cite{DEA-technologydata}  \\  
+            & 2030 & 142 \officialeuro/kWh & - & - & - & 25 & \cite{DEA-technologydata} \\ \hline
+            Battery inverter & 2025 & 215 \officialeuro/kW & 0.3 & - & 0.96 & 10 & \cite{DEA-technologydata} \\  
+            & 2030 & 160 \officialeuro/kW & 0.3 & - & 0.96 & 10 & \cite{DEA-technologydata} \\ \hline
+            Hydrogen storage$^1$ & 2025 & 2.5 \officialeuro/kWh$_{\text{H}_2}$ & - & - & - & 100 & \cite{DEA-technologydata}  \\  
+            & 2030 & 2.0 \officialeuro/kWh$_{\text{H}_2}$ & - & - & - & 100 & \cite{DEA-technologydata} \\ \hline
+            Hydrogen electrolysis & 2025 & 550 \officialeuro/kW$_{\text{el}}$ & 2.0 & - & 0.67 & 27.5 & \cite{DEA-technologydata} \\
+            & 2030 & 450 \officialeuro/kW$_{\text{el}}$ & 2.0 & - & 0.68 & 30 & \cite{DEA-technologydata} \\ \hline
+            Hydrogen fuel cell & 2025 & 1200 \officialeuro/kW  & 5.0 & - & 0.50 & 10.0 & \cite{DEA-technologydata} \\ 
+            & 2030 & 1100 \officialeuro/kW & 5.0 & - & 0.50 & 10.0 & \cite{DEA-technologydata} \\ \hline
+            Allam cycle generator$^2$ & 2025 & 2760 \officialeuro/kW  & 14.8 & 3.2 & 0.54 & 30 & \cite{navigant-report, NetZeroAmerica-report} \\ 
+            & 2030 & 2600 \officialeuro/kW & 14.8 & 3.2 & 0.54 & 30 & \cite{navigant-report, NetZeroAmerica-report} \\ \hline
+            Clean firm generator$^3$ & 2025 & 10000 \officialeuro/kW & 0 & 0 & 1.00 & 30.0 & [-]\\ 
+            & 2030 & 10000 \officialeuro/kW & 0 & 0 & 1.00 & 30.0 & [-]\\ \hline \hline
+        \end{tabular}%
+    }
+\begin{tablenotes}
+    {\footnotesize
+    \item[] Notes: All costs are in 2020 euros; $^1$assumed to be underground hydrogen storage in salt caverns; $^2$costs also include estimate of 40 \officialeuro/t\co for carbon transport and sequestration; $^3$a stand-in for clean dispatchable technologies, such as advanced geothermal or advanced nuclear systems; own indicative assumptions. \item[] CAPEX = capital expenditure; FOM = fixed operations and maintenance costs; VOM = variable operations and maintenance costs.
+    }
+\end{tablenotes}
+    \vspace{0.2cm}
+    \caption{Technology assumptions.}
+    \label{tab:tech_costs}
+\end{table*}
+
