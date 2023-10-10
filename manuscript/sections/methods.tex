@@ -8,7 +8,7 @@ The optimal solution of the model includes the location and capacity of new powe
 By incorporating these into the mathematical problem, we model a situation when a fraction of electricity demand in a particular bidding zone is committed to procuring additional clean energy with a desired strategy.
 The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, unless otherwise stated (hereinafter referred to as \enquote{participating consumers}).
 Accordingly, the model co-optimises the procurement and operational decisions of the participating consumers to meet their electricity demand in accordance with the procurement strategy they have chosen.
-The mathematical formulation of the clean energy procurement model is provided in the \nameref{sec:si}.
+The mathematical formulation of the clean energy procurement model is provided in supplementary material [\labelcref{sec:si_3}].
 
 The 24/7~CFE procurement framework is based on the methodologies and metrics paper by Google (2021) \cite{google-methodologies}.
 The framework considers various \gls{cfe} supply options for the participating consumers, including procurement of own generation resources and storage assets, and electricity imports from the local grid.
@@ -44,16 +44,9 @@ In both cases (i) procurement is possible with generators from the same bidding 
     \item \textit{Palette 3} -- all above plus promising advanced technologies that are in prototype stage today, but are expected to be commercially available in the future: Allam cycle power plant with \gls{ccs}\footnote{Allam cycle is a natural gas power plant with up to 100\% of carbon capture and sequestration}, and advanced dispatchable generators---a stand-in for clean firm technologies, such as advanced geothermal (closed-loop) or advanced nuclear systems.
 \end{itemize}
 
-
-\textbf{Technology assumptions --} 
-
-Cost and other assumptions for energy technologies available for participating consumers were taken primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in Table S1. 
-For a full list of technology assumptions, see the GitHub repository [TODO]. 
+\textbf{Technology assumptions --} Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in Table S1. 
 For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion. 
 Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience. 
-We use the cost assumptions from the available literature and own indicative assumptions (see Table S1).
+We use the cost estimates from the available literature and own indicative assumptions (see Table S1).
 
-\textbf{Other assumptions --} 
-
-In all the modelled countries, renewable generation must meet the political targets as defined in the NECPs or by more recent national policy targets (such as the Easter
-package in Germany), see Table 1.
+\textbf{Other assumptions --} Other model inputs and key background system assumptions are provided in [\labelcref{sec:si_2}]. For a full list of technology assumptions, see the GitHub repository \cite{github-247CFEpaper}.
