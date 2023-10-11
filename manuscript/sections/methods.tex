@@ -2,17 +2,22 @@ The modelling workflow is based on the PyPSA --- an open-source software framewo
 
 \textbf{Optimisation model --} The simulations were carried out with the modified version of the PyPSA-Eur model \cite{PyPSA-Eur-github}. 
 The objective of the model is to minimise the annualised system-wide costs of meeting energy demand within the modelled system, while adhering to all relevant engineering, reliability, and policy constraints.
-The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year. This is standard for the PyPSA-Eur model \cite{horschPyPSAEurOpenOptimisation2018} and the long-term energy planning models of this class \cite{jenkinsGenX2022, howellsOSeMOSYSOpenSource2011}.
+We use a brownfield investment approach, which means that we keep the existing power generation and storage assets in the model and only optimise the capacity expansion of new assets.
+The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year. 
+This is standard for the PyPSA-Eur model \cite{horschPyPSAEurOpenOptimisation2018} and the long-term energy planning models of this class \cite{jenkinsGenX2022, howellsOSeMOSYSOpenSource2011}.
 
 \textbf{Clean energy procurement --} We introduce new model components (parameters, variables, constraints) to model voluntary clean energy procurement.
 By incorporating these into the mathematical problem, we model a situation when a fraction of electricity demand in a particular bidding zone is committed to procuring additional clean energy with a desired strategy.
-The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, unless otherwise stated (hereinafter referred to as \enquote{participating consumers}).
+The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, hereinafter referred to as \enquote{participating consumers}.
+The participating consumers are modelled as a single entity with a baseload demand profile.
 Accordingly, the model co-optimises the procurement and operational decisions of the participating consumers to meet their electricity demand in accordance with the procurement strategy they have chosen.
 The mathematical formulation of the clean energy procurement strategies is provided in the supplementary material [\labelcref{sec:si_3}].
 
 The 24/7~CFE procurement framework is based on the methodologies and metrics paper by Google (2021) \cite{google-methodologies}.
 The framework considers various \gls{cfe} supply options for the participating consumers, including procurement of own generation resources and storage assets, and electricity imports from the local grid.
-The framework also allows for controlling \textit{the quality score} of the 24/7~CFE procurement by setting the threshold for the minimum share of hours when the hourly \gls{cfe} supply meets the hourly electricity demand. 
+The framework also allows for controlling \textit{the quality score} of the 24/7~CFE procurement by setting the target threshold for the minimum share of hours when the hourly \gls{cfe} supply meets the hourly electricity demand.
+The quality score is hereinafter referred to as \enquote{CFE target}, which takes values in percent points, e.g., 95\%, 99\%, 100\%.
+The higher the CFE target, the higher the quality of the 24/7~CFE supply; see equation [TODO] for details.
 
 \textbf{Model scope --} Geographically, the model encompasses the entire \gls{entsoe} area, which covers the entire European electricity system.\footnote{Islands that are not connected to the main European system, such as Malta, Crete and Cyprus, are excluded from the model.}
 In this study, electricity demand, supply and power transmission infrastructure\footnote{Alternating current lines at and above 220kV voltage level and all high voltage direct current lines.} are clustered to 37 individual bidding zones \cite{PyPSAEur-docs-spatialresolution}. 
@@ -29,12 +34,12 @@ The problem is solved with a temporal resolution of 2920 snapshots, representing
 
 \begin{itemize}[-]
     \item \textit{100\% annual matching}: participating buyers meet their annual energy demand on volumetric basis with additional renewable energy procurement;
-    \item \textit{24/7 hourly matching}: participating buyers optimise their investment and operational decisions mixing procurement of additional generation and storage resources and electricity imports so that \gls{cfe} supply meets electricity demand 24/7 throughout the year with the desired quality score;
-    \item For benchmarking, we also model \textit{a reference case}: participating buyers have no voluntary environmental commitments and get all their electricity from the local grid.
+    \item \textit{24/7 hourly matching}: participating buyers optimise their investment and operational decisions mixing procurement of additional generation and storage resources and electricity imports so that \gls{cfe} supply meets electricity demand 24/7 throughout the year with the desired quality target.
 \end{itemize}
 
 We setup the study design so that the procurement strategies are modelled under the same conditions.
-In both cases (i) procurement is possible with generators from the same bidding zone only (i.e., we model the \enquote{best case} of the annual matching strategy); (ii) the same set of consumers participate; (iii) the same set of constraints is applied to the rest of the electricity system.
+In both cases (i) procurement is possible with generators from the same bidding zone only (i.e., we model the \enquote{best case} of the annual matching strategy); (ii) the same set of consumers participate; (iii) the same set of constraints is applied to the rest of the electricity system. 
+For benchmarking, we also model \textit{a reference case}: participating buyers have no voluntary environmental commitments and purchase all their electricity from the local grid.
 
 \textbf{Carbon-free energy technologies in scope --} Depending on the scenario, participating consumers can choose from a variety of energy technologies available on the European market. By grouping technologies according to their maturity levels and availability on the market, we formulate three scenarios:
 
