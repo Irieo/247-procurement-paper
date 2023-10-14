@@ -30,5 +30,38 @@ Since 100\% CFE matching implies covering the entire electricity demand with cle
 More information on the price hedge effect is provided by the 24/7 CFE Energy Compact \cite{gocarbonfree247}.
 
 
-Diverse grid locations:
-The results highlight that the decarbonisation impact of 24/7 hourly procurement can be achieved with very little cost premium over the 100\% annual renewable matching, if the advanced technology is available.
+\textbf{Critical appraisal --} This work has simplifications and limitations that should be acknowledged.
+
+%Limitations: electricity sector only
+First, only the electricity sector is included in the mathematical model of the European energy system.
+The research focus of this study justifies it.
+However, it is important to acknowledge that the electricity sector is not an isolated system, but it is closely linked with other energy sectors, such as heat and transport.
+Brown et al. (2018) discuss the synergies of sector coupling in the integrated European energy system \cite{brownSynergiesSectorCoupling2018}.
+
+%Limitations: merged profiles of consumers
+Second, consumers participating in clean energy procurement are modelled as one entity.
+The real-world situation may involve a number of individual consumers participating in a voluntary clean energy procurement scheme.
+Our assumption is that all consumers that commit to 24/7 matching, form alliances, and enter into contracts with carbon-free energy generators so that their aggregated consumption can be matched with clean generation on an hourly basis to achieve a given CFE target.
+In reality, participating consumers can pursue hourly matching strategies independently based on their own load profiles.
+See Xu \& Jenkins (2022) investigating this case \cite{princeton-TEACs-2022}.
+
+% Limitations: consumption profiles
+Third, we assume that the participating consumers have a flat demand profile (i.e. baseload).
+As a matter of fact, consumer demand profiles vary based on their business activities.
+It has been shown by Riepin~\&~Brown (2022) that the shape of consumption profiles affects the cost-optimal technology mix required for achieving a certain CFE target; however, the shape of the profile has relatively little impact on procurement costs, emissionality of the portfolio, and system-level impacts of 24/7 procurement \cite{riepin-zenodo-systemlevel247}.
+
+% Limitations: a point on DSM
+Fourth, participating consumers have an inflexible demand, i.e., no demand-side management is considered.
+In reality, many \gls{ci} consumers have some degree of demand flexibility, which they can use to adjust their consumption as needed based on grid signals, such as the wholesale market price and the average emission rate of the local electricity mix.
+Moreover, some consumers, such as data centers and cloud computing providers, can shift their load also in space, i.e., to shift computing
+jobs and associated power loads across data center locations \cite{rosskoningsteinWeNowMore2021}.
+In the recent work, Riepin~\&~Brown (2023) explore how space-time load-shifting flexibility can be used to meet high 24/7 CFE targets, as well as what potential benefits it may offer to participating energy buyers and to the rest of the energy system \cite{riepin-zenodo-spacetime247CFE}.
+
+% Excess constraint problem
+One of the simplifications of mathematical models implementing 24/7 CFE procurement is how the excess carbon-free electricity is handled. 
+The \enquote{excess CFE} can be defined as the total amount of carbon-free electricity supply exceeding the demand of the participating consumers in a given period of time.
+Here we assume that the excess can either be curtailed or sold to the regional electricity market at wholesale market prices, until the excess constraint is reached (see \cref{sec:si_3} for detail).
+The problem with the uncostrained export of excess CFE to the regional market could be a situation where excess electricity from the renewable generators procured by 24/7 consumers displaces electricity from other renewable generators in the market, which in turn may challenge additionality of the 24/7 procurement. 
+Similar \enquote{spillover effect} problem has been observed and discussed by Xu et al. (2022) \cite{xu-247CFE-SSRN}.
+In their white paper, Peninsula Clean Energy team also discuss the problems and implications of the excess supply. Citing their work: \enquote{We conclude that excess supply is a necessary aspect of a time-coincident renewable portfolio in the range of likely market conditions in California today} \cite{peninsula-report247}.
+Both studies perform sensitivity analyses on the excess supply and discuss the implications on their findings \cite{xu-247CFE-SSRN, peninsula-report247}.
