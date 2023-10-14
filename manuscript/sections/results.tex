@@ -31,7 +31,7 @@ We publish an online dashboard with results for the entire scenario space alongs
 
 %some parts of this paragraph may go to methods
 \cref{fig:10-2025-IE-p1-used} shows the fraction of hourly demand met with \gls{cfe} depending on the procurement policy that participating consumers follow.
-We contrast two main cases, one where participants commit to 100\% annual renewable matching policy (hereinafter -- \enquote{100\% RES}) and another case where the consumers commit to 24/7~CFE hourly matching policy (hereinafter -- \enquote{24/7~CFE}) with various \gls{cfe} targets in a range from 80\% to 100\%. 
+We contrast two main cases, one where participants commit to 100\% annual renewable matching policy (hereinafter -- \enquote{100\% RES}) and another case where the consumers commit to 24/7~CFE hourly matching policy (hereinafter -- \enquote{24/7~CFE}) with various CFE targets in a range from 80\% to 100\%. 
 In the \textit{reference case}, participating consumers cover their load purely with grid purchases without any policy regarding the origin of electricity.
 
 \begin{figure}
@@ -41,7 +41,7 @@ In the \textit{reference case}, participating consumers cover their load purely 
     \label{fig:10-2025-IE-p1-used}
 \end{figure}
 
-In the reference case, only 54\% of demand is met with \gls{cfe} electricity.
+In the reference case, only 54\% of demand is met with \gls{cfe}.
 100\% RES---the best case for the annual renewable matching policy---results in 83\% fraction. 
 Consequently, CFE targets beyond 85\% yield higher share of hourly demand met with \gls{cfe} than 100\%~RES.
 Another notable trend in \cref{fig:10-2025-IE-p1-used} is that participanting consumers rely more on procured resources and less on grid imports with higher CFE targets.
@@ -341,7 +341,7 @@ Remarkably, these participants not only achieve zero emissions associated with t
 In the previous sections, we demonstrated that 24/7 clean energy procurement results in a substantial reduction of \co emissions in local electricity grids (Figures \ref{fig:10-2025-IE-p1-zone_emissions}, \ref{fig:10-2025-DE-p3-zone_emissions}, \ref{fig:10-2025-PL-p3-zone_emissions} and \ref{fig:10-2030-IE-p1-zone_emissions}).
 In this section, we examine the underlying mechanisms that drive these observed reductions, so as to better understand how clean energy procurement and emissions reduction interrelate.
 
-Two mechanisms are responsible for reducing system-wide emissions:
+As originally identified by Xu et al. (2021) \cite{xu-247CFE-report}, two mechanisms are responsible for reducing system-wide emissions:
 
 First, a \textit{profile} mechanism: participants doing 24/7 hourly matching procure clean energy resources that better match their demand patterns. 
 As certain consumers timely align their demand with \gls{cfe} supply, the need for dispatchable generation that can firm intermittent renewable supply is lower in the rest of the system. 
@@ -363,8 +363,8 @@ As a result, the reduction of emissions in a local zone can be attributed either
 In the plot, the x-axis shows the different states of electricity grids in which \gls{ci} consumers participate in 24/7 procurement.
 The eight 'background grids' are generated from the combination of modelled wildcards: four zones and two years.
 
-It can be seen in \cref{fig:10-profile-volume.pdf} that the overall impact of 24/7 CFE procurement is proportional to how clean the background grid on average is.
-Thus, the largest impact is at 571.6~kgCO$_2$/a·MWh$^{-1}$ takes place in the Poland 2025 zone, and the lowest one is 3.7~kgCO$_2$/a·MWh$^{-1}$ in Denmark 2030 (NB 10\% of \gls{ci} sector participation rate with CFE 100\% target).
+\cref{fig:10-profile-volume.pdf} shows that the impact of 24/7 CFE procurement in absolute terms is proportional to how clean the background grid on average is.
+Thus, the largest impact is at 571.6~kgCO$_2$/a·MWh$^{-1}$ takes place in the Poland 2025 zone, and the lowest one is 3.7~kgCO$_2$/a·MWh$^{-1}$ in Denmark 2030 (NB values for 10\% of \gls{ci} sector participation rate with CFE 100\% target).
 It is noteworthy that from 2025 to 2030, the decarbonisation effect of voluntary clean electricity procurement decreases over time in all zones since electricity grids become cleaner as a result of national climate policy programs and decomissioning of emitting power plants.
 A comparison of the volume and profile mechanisms reveals that both contribute to the decarbonization of the local grids.
 In particular, the profile mechanism contributes significantly to overall emissions reductions, with a major share across all zones regardless of their configuration.
@@ -379,7 +379,7 @@ The volume mechanism retains, or even amplifies, its relevance, by leveraging a 
 Consequently, clean electricity is not only available but can also be sold to the background grid during periods when system-wide wind and solar generation is scarce.
 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
 
     \begin{subfigure}[t]{\columnwidth}
@@ -403,28 +403,3 @@ Consequently, clean electricity is not only available but can also be sold to th
         \label{fig:decarbonisation_story}
 
 \end{figure}
-
-
-% \subsection{System flexibility need reduction}
-% \label{subsec:flexibility}
-
-% \vspace{5pt}
-% \begin{res}
-%     24/7 CFE procurement reduces the needs for flexibility in the rest of the system.
-% \end{res}
-   
-% The decarbonisation mechanisms discussed above suggest a displacement of fossil-fueled generators in the rest of the system in presense of voluntary clean electricity procurement.
-% We illustrate this effect in \cref{fig:10-2030-DE-p1-system_capacity_diff.pdf}, which shows the difference in the generation capacity expansion of the whole European electricity system (excluding resources procured by participating customers) with and without commitments to clean electrity procurement (an illustraive scenario for Germany, 2030, technological palette~1). 
-% Hourly CFE procurement benefits the system by having a pronounced effect of flexibility needs reduction -- the system requires less battery storage and less peaker capacity in a form of \gls{ocgt}. 
-% In the selected example, 3.8~GW of load (10\% of \gls{ci} sectors in Germany) participate in the procurement.
-% In a case of hourly matching with 100\% CFE target, this reduces \gls{ocgt} investments by 4.6~GW and battery storage by 2.6~GW in the rest of the system.
-% The substitution of gas-fired capacity with clean resources procured by \gls{ci} consumers facilitates decarbonization of the entire system, as shown above.
-
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.95\columnwidth]{plots/10/2030/DE/p1/system_capacity_diff.pdf}
-%     \caption{
-%     Difference in generation capacity expansion in the whole European electricity system (including \gls{ci} resources) with and without clean energy procurement. 
-%     Selected scenario of Germany, 2030, technological palette~1.}
-%     \label{fig:10-2030-DE-p1-system_capacity_diff.pdf}
-% \end{figure}
