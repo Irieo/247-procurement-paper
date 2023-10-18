@@ -1,12 +1,12 @@
-
 Throughout the analysis, we examine how voluntary clean electricity procurement strategies affect both buyers and the electricity system as a whole.
 From the \gls{ci} buyers' perspective, we examine optimal procurement strategies (i.e., a mix of locally procured energy generation and storage assets and electricity imports), the average cost of procured electricity and the carbon emissions associated with electricity usage, also known as Scope 2 emissions \cite{GHGProtocolScope2}.
-From a system perspective, we analyze how voluntary clean energy procurement impacts \co emissions in the region and the \enquote{demand pull} for advanced energy technologies.
+From a system perspective, we analyze how voluntary clean energy procurement impacts CO$_2$ emissions in the region and the \enquote{demand pull} for advanced energy technologies.
 
 Our experimental setup incorporates a wide range of scenarios, allowing us to generalise our results beyond individual assumptions.
 For convenience, we start with a \textit{base scenario} presented in \cref{subsec:base}.
 The base scenario reflects a case when 10\% (on volumetric basis) of \gls{ci} consumers in \textit{Ireland} in \textit{2025} are committed to procuring additional clean energy with a desired strategy.
-The participating consumers can attain the 24/7~CFE procurement targets by co-optimizing local procurement using mature technologies, designated as \textit{palette~1}, and by importing electricity from the local grid. Afterward, we delve deeper into the scenario space, altering selected parameters to explore various alternatives and address the following questions:
+The participating consumers can attain the 24/7~CFE procurement targets by co-optimizing local procurement using mature technologies, designated as \textit{palette~1}, and by importing electricity from the local grid. 
+Afterward, we delve deeper into the scenario space, altering selected parameters to explore various alternatives and address the following questions:
 
 \begin{enumerate}[-]
 \item \cref{subsec:palette}: What if a wider palette of carbon-free technologies were available to participating buyers?
@@ -15,8 +15,9 @@ The participating consumers can attain the 24/7~CFE procurement targets by co-op
 \item Finally, in \cref{subsec:mechanisms}, we get a closer look at how 24/7 CFE commitments can help decarbonize local grids and reveal the individual mechanisms involved.
 \end{enumerate}
 
-Considering the large scenario space, this work presents results for a selection of scenario branches that generalise the system impacts of 24/7 CFE procurements.
-We publish an online dashboard with results for the entire scenario space alongside the paper, see \nameref{sec:code}.
+Considering the large scenario space, this work presents results for a selection of scenario branches that generalise the system impacts of the 24/7 carbon-free energy procurement.
+We publish all code to reproduce the experiments under open license alongside the paper. 
+See \nameref{sec:code}.
 
 \subsection{Base scenario}
 \label{subsec:base}
@@ -47,6 +48,21 @@ Consequently, CFE targets beyond 85\% yield higher share of hourly demand met wi
 Another notable trend in \cref{fig:10-2025-IE-p1-used} is that participating consumers rely more on procured resources and less on grid imports with higher CFE targets.
 When targets approach 100\%, participating consumers cannot rely on electricity imports from the grid, since the grid supply mix contains some carbon content in almost all hours.
 
+\cref{fig:10-2025-IE-p1-ci_emisrate} shows how choice of a procurement policy affects the average emissions rate of participating consumers.
+The average emissions rate is derived by dividing the total CO$_2$ emissions linked to the electricity consumption of participating consumers by the total kilowatt-hours (kWh) consumed.
+Already in 2025, Ireland has a moderately clean electricity system: the emission rate is at 177~g\co/kWh in the reference case.
+If participating consumers follow 100\%~RES policy, the emission rate is reduced to 60~g\co/kWh.
+This yields a considerable emission rate reduction compared to the reference case.
+The 24/7~CFE procurement with targets above 85\% helps the participating consumers to reduce emissions further beyond the treshhold set by the 100\%~RES. 
+At the 100\% CFE target, participating consumers attain a zero emission rate associated with their electricity consumption, as they perfectly align demand and \gls{cfe} supply on an hourly basis.
+
+Voluntary procurement of clean electricity also helps decarbonise the electricity system as a whole.
+We explore this effect by plotting CO$_2$ emissions in the local region of the participating consumers, i.e. Ireland (\cref{fig:10-2025-IE-p1-zone_emissions}).
+Without voluntary procurement, the model estimates Irish power sector carbon emissions to be at the level of 4.2 Mt\co/a.\footnote{For comparison, \href{https://www.seai.ie/data-and-insights/seai-statistics/key-publications/co2-emissions-report/}{seai.ie} reports this value to be at 10.3~MtCO$_2$ in 2021. A strong decreasing trend is expected, since the Irish government has set ambitious targets to achieve a low-carbon energy system \cite{seaiCOEmissionsReport2020}.}
+The modelling results indicate that a commitment to 100\% 24/7~CFE in 2025 from 10\% of the \gls{ci} electricity demand could yield a reduction in Irish emissions by 0.6~Mt\co/a, in contrast to a scenario absent voluntary procurement. 
+This reduction equates to 14\% of the total emissions from the Irish power sector.
+100\%~RES can also facilitate system-level CO$_2$ emissions reductions (as depicted by the left bar in \cref{fig:10-2025-IE-p1-zone_emissions}); however, 24/7~CFE attains superior emissions reductions when the CFE target surpasses 85\%.
+
 \begin{figure}[t]
     \centering
     \begin{subfigure}[t]{0.95\columnwidth}
@@ -58,28 +74,13 @@ When targets approach 100\%, participating consumers cannot rely on electricity 
     \begin{subfigure}[t]{0.95\columnwidth}
         \centering
         \vspace{-0.2cm}
-        \caption{\co emissions in the local region (Ireland).}
+        \caption{CO$_2$ emissions in the local region (Ireland).}
         \includegraphics[width=0.95\columnwidth]{plots/10/2025/IE/p1/zone_emissions.pdf}
         \label{fig:10-2025-IE-p1-zone_emissions}
     \end{subfigure}
     \caption{Impact of clean electricity procurement commitments on emissions of participating consumers (top panel) and the system-level emissions in a local region (bottom panel).}
     \label{fig:10-2025-IE-p1-emissions}
 \end{figure}
-
-\cref{fig:10-2025-IE-p1-ci_emisrate} shows how choice of a procurement policy affects the average emissions rate of participating consumers.
-Already in 2025, Ireland has a moderately clean electricity system: the emission rate is at 177~g\co/kWh in the reference case.
-If participating consumers follow 100\%~RES policy, the emission rate is reduced to 60~g\co/kWh.
-This yields a considerable emission rate reduction compared to the reference case.
-The 24/7~CFE procurement with targets above 85\% helps the participating consumers to reduce emissions further beyond the treshhold set by the 100\%~RES. 
-At the 100\% CFE target, participating consumers attain a zero emission rate associated with their electricity consumption, as they perfectly align demand and \gls{cfe} supply on an hourly basis.
-
-Voluntary procurement of clean electricity also helps decarbonise the electricity system as a whole.
-We explore this effect by plotting \co emissions in the local region of the participating consumers, i.e. Ireland (\cref{fig:10-2025-IE-p1-zone_emissions}).
-Without voluntary procurement, the model estimates Irish power sector carbon emissions to be at the level of 4.2 Mt\co/a.\footnote{For comparison, \href{https://www.seai.ie/data-and-insights/seai-statistics/key-publications/co2-emissions-report/}{seai.ie} reports this value to be at 10.3~Mt\co in 2021. A strong decreasing trend is expected, since the Irish government has set ambitious targets to achieve a low-carbon energy system \cite{seaiCOEmissionsReport2020}.}
-The modelling results indicate that a commitment to 100\% 24/7~CFE in 2025 from 10\% of the \gls{ci} electricity demand could yield a reduction in Irish emissions by 0.6~Mt\co/a, in contrast to a scenario absent voluntary procurement. 
-This reduction equates to 14\% of the total emissions from the Irish power sector.
-100\%~RES can also facilitate system-level \co emissions reductions (as depicted by the left bar in \cref{fig:10-2025-IE-p1-zone_emissions}); however, 24/7~CFE attains superior emissions reductions when the CFE target surpasses 85\%.
-
 
 \begin{figure}[t]
     \centering
@@ -186,11 +187,11 @@ German consumers experience lower average emissions rates, attributed to a clean
 In the reference cases, emission values stand at 240~g\co/kWh and 549~g\co/kWh for Germany and Poland, respectively.\footnote{For context, the emission intensity of electricity generation in 2021 was 402~g\co/kWh for Germany and 750~g\co/kWh for Poland \cite{EEA-GNGEmissionsEU}.} 
 Echoing the Irish scenario, both \cref{fig:10-2025-DE-p3-ci_emisrate} and \cref{fig:10-2025-PL-p3-ci_emisrate} demonstrate that in both contexts, participating consumers attain reduced emissions rates with 24/7~CFE procurement compared to 100\%~RES, given sufficiently strict CFE targets.
 
-The impact of 24/7 hourly CFE procurement on system-level \co emissions is notable in both Germany and Poland, as depicted in \cref{fig:10-2025-DE-p3-zone_emissions} and \cref{fig:10-2025-PL-p3-zone_emissions}.
-In the absence of any procurement strategy, carbon emissions from the power sectors of Germany and Poland are projected to be 118.8~Mt\co and 83.8~Mt\co in 2025, respectively.%
+The impact of 24/7 hourly CFE procurement on system-level CO$_2$ emissions is notable in both Germany and Poland, as depicted in \cref{fig:10-2025-DE-p3-zone_emissions} and \cref{fig:10-2025-PL-p3-zone_emissions}.
+In the absence of any procurement strategy, carbon emissions from the power sectors of Germany and Poland are projected to be 118.8~MtCO$_2$ and 83.8~MtCO$_2$ in 2025, respectively.%
 \footnote{Despite Germany consuming more electricity, the similar scale of power sector carbon emissions between the two countries can be attributed to Poland's significantly higher emission intensity in its electricity mix.} 
 By engaging in voluntary clean energy procurement, \gls{ci} consumers can drive notable decarbonisation in the local regions, exceeding the benchmarks set by \gls{necp}s.
-For instance, in Germany, even a 10\% participation rate under a 100\%~RES policy can diminish national emissions by 11.1~Mt\co annually; remarkably, the 24/7~CFE approach can amplify this impact to up to 14~Mt\co/a, given a CFE target of 100\%. 
+For instance, in Germany, even a 10\% participation rate under a 100\%~RES policy can diminish national emissions by 11.1~MtCO$_2$ annually; remarkably, the 24/7~CFE approach can amplify this impact to up to 14~Mt\co/a, given a CFE target of 100\%. 
 
 The optimal capacities of energy technologies and associated costs are illustrated in \cref{fig:10-2025-DE-p3-ci_costandrev} and \cref{fig:10-2025-PL-p3-ci_costandrev}.
 Similar to the Irish scenario, participating consumers complement renewable energy procurement with electricity imports from the grid to meet lower CFE targets. 
@@ -217,13 +218,13 @@ Mirroring the findings from Ireland, the cost premium of 24/7~CFE matching gets 
 
     \begin{subfigure}{0.5\textwidth}
         \centering
-        \caption{\co emissions in the local region (Germany).}
+        \caption{CO$_2$ emissions in the local region (Germany).}
         \includegraphics[width=0.95\columnwidth]{plots/10/2025/DE/p3/zone_emissions.pdf}
         \label{fig:10-2025-DE-p3-zone_emissions}
     \end{subfigure}%
     \begin{subfigure}{0.5\textwidth}
         \centering
-        \caption{\co emissions in the local region (Poland).}
+        \caption{CO$_2$ emissions in the local region (Poland).}
         \includegraphics[width=0.95\columnwidth]{plots/10/2025/PL/p3/zone_emissions.pdf}
         \label{fig:10-2025-PL-p3-zone_emissions}
     \end{subfigure}%
@@ -297,7 +298,7 @@ Remarkably, these participants not only achieve zero emissions associated with t
 
     \begin{subfigure}{0.5\textwidth}
         \centering
-        \caption{\co emissions in the local region (Ireland).}
+        \caption{CO$_2$ emissions in the local region (Ireland).}
         \includegraphics[width=0.95\columnwidth]{plots/10/2030/IE/p1/zone_emissions.pdf}
         \label{fig:10-2030-IE-p1-zone_emissions}
     \end{subfigure}%
@@ -331,7 +332,7 @@ Remarkably, these participants not only achieve zero emissions associated with t
 \label{subsec:mechanisms}
 
 \begin{res}
-    24/7 CFE procurement mitigates system-level \co \newline 
+    24/7 CFE procurement mitigates system-level CO$_2$ \newline 
     emissions through two distinct mechanisms: \enquote{profile} and \enquote{volume}. The mechanisms origin from distinct aspects of the interplay between the 24/7 CFE procurement and the background electricity grids.
 \end{res}
 
@@ -339,7 +340,7 @@ Remarkably, these participants not only achieve zero emissions associated with t
     The disparity in decarbonisation outcomes between 24/7 CFE hourly and 100\% annual renewable matching policies becomes increasingly pronounced as local grids transition to cleaner states. This phenomenon underscores the effectiveness of 24/7 CFE procurement in supporting system decarbonisation in the context of evolving national energy and climate policies.
 \end{res}
 
-In the previous sections, we demonstrated that 24/7 clean energy procurement results in a substantial reduction of \co emissions in local electricity grids (Figures \ref{fig:10-2025-IE-p1-zone_emissions}, \ref{fig:10-2025-DE-p3-zone_emissions}, \ref{fig:10-2025-PL-p3-zone_emissions} and \ref{fig:10-2030-IE-p1-zone_emissions}).
+In the previous sections, we demonstrated that 24/7 clean energy procurement results in a substantial reduction of CO$_2$ emissions in local electricity grids (Figures \ref{fig:10-2025-IE-p1-zone_emissions}, \ref{fig:10-2025-DE-p3-zone_emissions}, \ref{fig:10-2025-PL-p3-zone_emissions} and \ref{fig:10-2030-IE-p1-zone_emissions}).
 In this section, we examine the underlying mechanisms that drive these observed reductions, so as to better understand how clean energy procurement and emissions reduction interrelate.
 
 As originally identified by Xu et al. (2021) \cite{xu-247CFE-report}, two mechanisms are responsible for reducing system-wide emissions:
