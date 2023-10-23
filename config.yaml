@@ -30,18 +30,16 @@ scenario:
           "DK",
           "DE",
           "PL",
-          #"NL" 
         ]
   year: ['2025', 
          '2030'
          ] # controls both the brownfield fleet and tech costs projection
-  participation: ['10', 
-                  '25'
+  participation: ['10',
                   ] #share [%] of CI load per zone following 247-CFE approach
 
 #data center
 ci:
-  name: "google"
+  name: "datacenter"
   profile_shape: "baseload" #"baseload", "datacenter", "industry"
   res_techs: ["onwind","solar"]
 
