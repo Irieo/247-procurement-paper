@@ -70,6 +70,4 @@ mamba env create -f envs/environment.yml
 
 ## License
 
-Copyright 2023 Iegor Riepin, Tom Brown.
-
-This code is licensed under the open source MIT License.
+Different licenses apply to different parts of the repository. See [specifications here](.reuse/dep5).
