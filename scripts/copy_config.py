@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Iegor Riepin, Tom Brown
+#
+# SPDX-License-Identifier: MIT
+
 from shutil import copy
 
 import os

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Iegor Riepin, Tom Brown
+#
+# SPDX-License-Identifier: MIT
+
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter

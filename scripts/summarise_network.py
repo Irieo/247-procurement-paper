@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Iegor Riepin, Tom Brown
+#
+# SPDX-License-Identifier: MIT
+
 import pypsa, numpy as np, pandas as pd
 import yaml
 from solve_network import palette, geoscope, timescope

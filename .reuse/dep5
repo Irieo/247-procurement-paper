@@ -1,0 +1,28 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: 247-procurement-paper
+Upstream-Contact: Iegor Riepin <iegor.riepin@tu-berlin.de>
+Source: https://github.com/Irieo/247-procurement-paper
+
+Files: *
+Copyright: : 2023 Iegor Riepin, Tom Brown
+License: CC0-1.0
+
+Files: results/*
+Copyright: : 2023 Iegor Riepin, Tom Brown
+License: CC-BY-4.0
+
+Files: manuscript/*
+Copyright: : 2023 Iegor Riepin, Tom Brown
+License: CC-BY-4.0
+
+Files: Snakefile
+Copyright: : 2023 Iegor Riepin, Tom Brown
+License: MIT
+
+Files: scripts/*.py
+Copyright: : 2023 Iegor Riepin, Tom Brown
+License: MIT
+
+Files: scripts/*.ipynb
+Copyright: : 2023 Iegor Riepin, Tom Brown
+License: MIT

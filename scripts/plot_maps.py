@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Iegor Riepin, Tom Brown
+#
+# SPDX-License-Identifier: MIT
+
 """
 Function for plotting a generation capacity fleet and transmission infrastructure
 considering pypsa-eur-sec component structure
