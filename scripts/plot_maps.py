@@ -8,7 +8,7 @@ considering pypsa-eur-sec component structure
 
 Keep note that in this project each network has four stages:
 1) An input network (existing capacities)
-2) Regionally- and component-wise stripped input network (existing capacities) 
+2) Regionally- and component-wise stripped input network (existing capacities)
 3) (2) with policy adjustments for nuclear/lignite/etc.
    That yields a brownfield fleet for the target year -- an input for the optimization.
 4) Solved network

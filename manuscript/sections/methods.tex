@@ -5,7 +5,7 @@
 \textbf{Optimisation model --} The simulations were carried out with the modified version of the open European power system model PyPSA-Eur, built using the open framework PyPSA \cite{brownPyPSAPythonPower2018}.
 The objective of the model is to minimise the annualised system-wide costs of meeting energy demand within the modelled system, while adhering to all relevant engineering, reliability, and policy constraints.
 We use a brownfield investment approach, which means that we keep the existing power generation and storage assets in the model and only optimise the capacity expansion of new assets.
-The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year. 
+The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year.
 This is standard for the PyPSA-Eur model \cite{horschPyPSAEurOpenOptimisation2018} and the long-term energy planning models of this class \cite{jenkinsGenX2022, howellsOSeMOSYSOpenSource2011}.
 
 \textbf{Clean energy procurement model --} We introduce new model components (parameters, variables, constraints) into the PyPSA-Eur model to represent voluntary clean energy procurement.
@@ -13,7 +13,7 @@ By incorporating these into the mathematical problem, we model a situation where
 The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, hereinafter referred to as \enquote{participating consumers}.
 The model co-optimises procurement and operational decisions of the participating consumers to meet their electricity demand in accordance with the procurement strategy they have chosen.
 
-We model and compare two procurement strategies: 
+We model and compare two procurement strategies:
 
 \begin{itemize}[-]
     \item \textit{100\% annual matching}: participating buyers meet their energy demand on an annual volumetric basis with additional renewable energy procurement;
@@ -21,7 +21,7 @@ We model and compare two procurement strategies:
     \item For benchmarking, we also model \textit{a reference case}: participating buyers have no voluntary environmental commitments and purchase all their electricity from the local grid.
 \end{itemize}
 
-\textit{100\% annual matching --} The annual volumetric renewable matching strategy is modelled with a constraint (\ref{eqn:RES100}). 
+\textit{100\% annual matching --} The annual volumetric renewable matching strategy is modelled with a constraint (\ref{eqn:RES100}).
 More formally, the sum of all dispatch $g_{r,t}$ of contracted renewable generators $r\in RES$ over the year $t\in T$ is equal to the annual electricity demand of participating consumers:
 \begin{equation}
 \sum_{r\in RES, t\in T} g_{r,t} = \sum_{t\in T} d_t
@@ -44,7 +44,7 @@ More formally, the hourly generation from the procured CFE generators $r\in CFE$
 \end{equation}
 
 % On CFE target
-\noindent where \textit{CFE score} $x$[\%] measures the degree to which hourly electricity consumption is matched with carbon-free electricity generation. 
+\noindent where \textit{CFE score} $x$[\%] measures the degree to which hourly electricity consumption is matched with carbon-free electricity generation.
 Equation (\ref{eqn:CFE}) thus allows for controlling \textit{the quality score} of the 24/7~CFE procurement by adjusting the parameter $x$. The best quality score---100\% CFE---means that every kilowatt-hour of electricity consumption is met by carbon-free sources at all times.
 
 % On locational matching and additionality
@@ -54,27 +54,27 @@ Similarly to the hourly matching strategy, the contracted generators must be add
 Note that if total electricity generation of assets procured by participating consumers exceeds demand in a given hour, the \enquote{excess} carbon-free electricity is not counted toward a CFE score.
 Here we assume that the excess can either be curtailed or sold to the regional electricity market at wholesale market prices.
 We set a constraint on the total amount of excess generation sold to the regional grid, setting the limit to 20\% of the total annual demand of participating consumers.\footnote{In \nameref{sec:discussion}, we explain the rationale behind this limit and discuss the implications of this assumption.}
-The wholesale market prices are derived from dual variables of a nodal energy balance constraint. 
+The wholesale market prices are derived from dual variables of a nodal energy balance constraint.
 
 % On bilinear term due to grid CFE factor
-The CFE factor of the regional grid ($CFE_t$) can be seen as the percentage of clean electricity in each MWh of imported electricity to supply demand of participating consumers in a given hour. 
+The CFE factor of the regional grid ($CFE_t$) can be seen as the percentage of clean electricity in each MWh of imported electricity to supply demand of participating consumers in a given hour.
 To compute $CFE_t$, we consider both the hourly electricity mix in the local bidding zone and the emissionality of imported electricity from the neighbouring zones.
 The methodology to calculate the grid CFE factor is described in the prior work of the authors \cite{riepin-zenodo-systemlevel247}.
 
-Note that in equation (\ref{eqn:CFE}), $CFE_t$ is affected by additional CFE resources procured by the participating consumers. 
-This introduces a nonconvex term to the optimisation problem. 
+Note that in equation (\ref{eqn:CFE}), $CFE_t$ is affected by additional CFE resources procured by the participating consumers.
+This introduces a nonconvex term to the optimisation problem.
 The nonconvexity can be avoided by treating the grid CFE factor as a parameter that is iteratively updated (starting with $CFE_t =0 \,~\forall t$).
 We find that one forward pass (i.e. 2 iterations) yields very good convergence.
 
 
 \textbf{Model scope --} Geographically, the model encompasses the entire \gls{entsoe} area, which covers the entire European electricity system.\footnote{Islands that are not connected to the main European system, such as Malta, Crete and Cyprus, are excluded from the model.}
-In this study, electricity demand, supply and power transmission infrastructure (alternating current lines at and above 220~kV voltage level and all high voltage direct current lines) are clustered to 37 individual bidding zones \cite{PyPSAEur-docs-spatialresolution}. 
+In this study, electricity demand, supply and power transmission infrastructure (alternating current lines at and above 220~kV voltage level and all high voltage direct current lines) are clustered to 37 individual bidding zones \cite{PyPSAEur-docs-spatialresolution}.
 Thus, each zone represents a country; some countries straddling different synchronous areas are split into individual bidding zones, such as DK1 (West) and DK2 (East).
 
 Participating consumers can be located in either of the four selected zones: Ireland, Denmark (zone DK1), Germany, or Poland.
 The comparison of results across these zones allows us to generalize the implications of voluntary clean energy procurement, taking into account factors such as electricity demand, weather, availability of renewable resources, existing electricity generation capacity mix, and national energy policies, among other factors.
 
-We model two individual years: 2025 and 2030. 
+We model two individual years: 2025 and 2030.
 From a modelling perspective, a five-year step changes many system parameters.
 In particular, technology costs decline as a result of economies of scale and incremental innovation, \gls{necp}s become tighter, \co~prices increase, and some legacy power plants go out of business.
 The problem is solved with a temporal resolution of 2920 snapshots, representing a 3-hourly average of the hourly time-series data.
@@ -83,12 +83,12 @@ The problem is solved with a temporal resolution of 2920 snapshots, representing
 
 \begin{itemize}[-]
     \item \textit{Palette 1} -- technologies that are commercially available today: onshore wind, utility scale solar photovoltaics (\gls{PV}), and battery storage;
-    \item \textit{Palette 2} -- all above plus a long-duration energy storage (\gls{ldes}) that is expected to be commercially available in the near future; 
+    \item \textit{Palette 2} -- all above plus a long-duration energy storage (\gls{ldes}) that is expected to be commercially available in the near future;
     \item \textit{Palette 3} -- all above plus promising advanced technologies that are in prototype stage today, but are expected to be commercially available in the future: (i) Allam cycle power plant with \gls{ccs}\footnote{Allam cycle is a natural gas power plant with up to 100\% of carbon capture and sequestration} to represent a technology option with higher operational expences (\gls{opex}), and (ii) \enquote{an advanced dispatchable generator}, a stand-in for clean firm technologies with higher capital expences (\gls{capex}), such as advanced geothermal or nuclear systems.
 \end{itemize}
 
 \textbf{Technology assumptions --} Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in [\cref{tab:tech_costs}].
-For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion. 
+For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion.
 Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience; therefore, use our own indicative assumptions.
 
 \textbf{Other assumptions --} Other model inputs and key background system assumptions are provided in [\labelcref{sec:si_2}]. For a full list of technology assumptions, see the GitHub repository \cite{github-247CFEpaper}.
