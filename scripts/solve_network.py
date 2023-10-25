@@ -542,7 +542,7 @@ def add_ci(n, participation, year):
         p_set=load_profile(n, zone, profile_shape),
     )
 
-    # C&I following 24/7 approach is a share of all C&I load -> thus substract it from node's profile
+    # C&I following 24/7 approach is a share of all C&I load -> thus subtract it from node's profile
     n.loads_t.p_set[f"{node}"] -= n.loads_t.p_set[f"{name}" + " load"]
 
     # Add generators

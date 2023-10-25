@@ -5,12 +5,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
-import numpy as np
-
-# allow plotting without Xwindows
 import matplotlib
-from pyrsistent import s
-from xarray import align
 
 matplotlib.use("Agg")
 

@@ -45,3 +45,9 @@ repos:
   hooks:
   - id: jupyter-notebook-cleanup
     exclude: examples/solve-on-remote.ipynb
+
+  # Check for FSFE REUSE compliance (licensing)
+- repo: https://github.com/fsfe/reuse-tool
+  rev: v2.1.0
+  hooks:
+  - id: reuse
