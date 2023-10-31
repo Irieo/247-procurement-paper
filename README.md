@@ -54,7 +54,7 @@ git clone git@github.com:PyPSA/technology-data.git
 
 ### Software requirements
 
-The code is known to work with PyPSA 0.25.2, pandas 1.5.3, numpy 1.1.24.2, vresutils 0.3.1 and gurobi 10.0.1. The complete list of dependencies is in the [envs/environment.yml](envs/environment.yml) file.
+The code is known to work with PyPSA 0.25.2, pandas 1.5.3, numpy 1.24.2, vresutils 0.3.1 and gurobi 10.0.1. The complete list of dependencies is in the [envs/environment.yml](envs/environment.yml) file.
 
 If you have troubles with a slow [conda](https://docs.conda.io/en/latest/) installation, we recommend to install [mamba](https://mamba.readthedocs.io/en/latest/):
 
