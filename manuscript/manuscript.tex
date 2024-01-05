@@ -148,12 +148,16 @@
 
 	\title{On the means, costs, and system-level impacts of 24/7 carbon-free energy procurement}
 
-	\author[tubaddress]{Iegor Riepin}
+	\author[tubaddress]{Iegor Riepin\fnref{fn1}}
 	\ead{iegor.riepin@tu-berlin.de}
+    
 	\author[tubaddress]{Tom Brown}
 	\ead{t.brown@tu-berlin.de}
 
 	\address[tubaddress]{Department of Digital Transformation in Energy Systems, TU Berlin, Germany}
+
+    \fntext[fn1]{Corresponding author: Iegor Riepin, Technical University of Berlin, Einsteinufer 25, 10587 Berlin, Germany}
+
 
 	\begin{abstract}
 		% The 5 things a good abstract needs:
@@ -171,6 +175,7 @@
 		Our results indicate that clean energy procurement commitments have consistent beneficial effects on participants and the electricity system.
 		Even as grids become cleaner over time, the hourly matching strategy contributes significantly to system-level emissions reduction.
 		In addition, voluntary commitments to 24/7 CFE have a further transformative effect on electricity systems through accelerated innovation and early deployment of advanced energy technologies.
+
 	\end{abstract}
 
 	\begin{keyword}
@@ -195,7 +200,7 @@
 
 Climate change is driving a global effort to rapidly decarbonise electricity systems across the globe.
 The European Union (\gls{eu}) has committed to achieving net-zero emissions by 2050, and the European Commission has adopted the European Climate Law with a target of reducing net greenhouse gas emissions by at least 55\% by 2030, compared to 1990 levels \cite{EuropeanClimateLaw2020}.
-National climate initiatives are gaining ground across the globe, including the United States with the Biden administration's goal of reducing emissions by 50-52\% by 2030, compared to 2005 levels \cite{BidenClimatePlan2021}, and China's commitment to have CO$_2$ emissions peak before 2030 and achieve carbon neutrality before 2060 \cite{ChinaNetZero-IEA}.
+National climate initiatives are gaining ground across the globe, including the United States with the Biden administration's goal of reducing emissions by 50-52\% by 2030, compared to 2005 levels \cite{BidenClimatePlan2021}, and China's commitment to have CO$_2$ emissions peak before 2030 and achieve carbon neutrality before 2060 \cite{ChinaNetZero-IEA, liuEconomicCostEnergy2023}.
 
 % 2. **Evolution, approaches and challenges of voluntary clean energy procurement**
 
@@ -205,7 +210,7 @@ A common feature of these schemes is that renewable energy credits are \enquote{
 The owner gets to claim environmental benefits when \enquote{retiring} (i.e. using) the certificate.
 The unbundled renewable energy credits, however, have been criticized for not ensuring a physical match between renewable energy generation and consumption \cite{spglobal-recs, bock-icelandGOproblem, re100report-2020}, and for absence of evidence that such schemes drive build-out of additional renewable energy capacity \cite{bjorn-RECSnatcom-2022, gillenwater-2014}.
 
-Some corporate and industrial (\gls{ci}) buyers recongnised the problems associated with the unbundled certificates and turned towards Power Purchase Agreements (\gls{ppa}s).
+Some corporate and industrial (\gls{ci}) buyers recognised the problems associated with the unbundled certificates and turned towards Power Purchase Agreements (\gls{ppa}s).
 When signing a \gls{ppa}, energy buyers pledge to buy both the energy and the environmental credits \enquote{bundled} to megawatt-hours.
 Market-driven procurement of renewable energy has become one of the major drivers of the energy transition: \gls{ppa}s are expected to account for one-fifth of utility solar PV and wind capacity expansion in 2023--2024, and almost twice as much (36\%) when China is excluded \cite{iea-REppa2023}.
 In some countries, such as Spain and Sweden, market-driven procurement of renewable energy capacity surpasses policy-driven capacity expansion \cite{iea-REppa2023}.
@@ -226,11 +231,11 @@ One approach is called 24/7 Carbon-Free Energy (\gls{cfe}) procurement, which ai
 Thus, 24/7~CFE procurement has the potential to eliminate all greenhouse gas emissions associated with electricity use of the participating companies.
 Furthermore, 24/7~CFE procurement is focused on \textit{carbon-free} rather than renewable energy, which opens up opportunities for a broad range of advanced energy technologies, such as long-duration energy storage (\gls{ldes}) or new clean firm power generators that are needed for deep decarbonisation of energy systems.
 
-Google led the 24/7 movement in 2020 by announcing its commitment to cover the demand at all its data centres and campuses worldwide using the 24/7 CFE approach by 2030 \cite{google-247by2030}.
-Shortly after, Google published a policy roadmap on achieving the goal \cite{google-PolicyRoadmap}.
+Google initiated the 24/7 movement in 2020 by announcing its commitment to cover the demand at all its data centres and campuses worldwide using the 24/7 CFE approach by 2030 \cite{google-247by2030}.
+Shortly after, Google published a policy roadmap on achieving the goal \cite{google-PolicyRoadmap} and methodologies paper for how to measure the progress \cite{google-methodologies}.
 Also, Microsoft has committed to the 100/100/0 by 2030 goal (i.e. \enquote{100\% of electricity consumption, 100\% of the time, matched by zero carbon energy purchases} \cite{Microsoft-vision}.
 The list of entities that have committed to 24/7 CFE procurement includes also utilities, such as Peninsula Clean Energy (a community choice aggregator in California) committed to 24/7~CFE by 2025 \cite{peninsula-OurPathto247}, and even cities like Des Moines, Iowa U.S., with a commitment by 2035 \cite{iowaenvcouncil-247}. In 2021, an international group of energy suppliers, electricity buyers, and \gls{ngo}s launched the 24/7 Carbon-free Energy Compact \cite{gocarbonfree247}.
-With over 135 signatories, the group aims to \enquote{develop and scale high-impact technologies, energy policies, procurement practices, aand solutions to make 24/7 Carbon-Free Energy achievable for all}.
+With over 135 signatories, the group aims to \enquote{develop and scale high-impact technologies, energy policies, procurement practices, and solutions to make 24/7 Carbon-Free Energy achievable for all}.
 
 % 5. **24/7 model-based studies review**
 
@@ -319,8 +324,8 @@ The wholesale market prices are derived from dual variables of a nodal energy ba
 
 % On bilinear term due to grid CFE factor
 The CFE factor of the regional grid ($CFE_t$) can be seen as the percentage of clean electricity in each MWh of imported electricity to supply demand of participating consumers in a given hour.
-To compute $CFE_t$, we consider both the hourly electricity mix in the local bidding zone and the emissionality of imported electricity from the neighbouring zones.
-The methodology to calculate the grid CFE factor is described in the prior work of the authors \cite{riepin-zenodo-systemlevel247}.
+To compute $CFE_t$, we consider both the hourly electricity mix in the local bidding zone and emission intensity of imported electricity from the neighbouring zones.
+The methodology to calculate the CFE factor of the regional grid is described in detail in the prior work of the authors \cite{riepin-zenodo-systemlevel247}.
 
 Note that in equation (\ref{eqn:CFE}), $CFE_t$ is affected by additional CFE resources procured by the participating consumers.
 This introduces a nonconvex term to the optimisation problem.
@@ -350,7 +355,7 @@ The problem is solved with a temporal resolution of 2920 snapshots, representing
 
 \textbf{Technology assumptions --} Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in [\cref{tab:tech_costs}].
 For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion.
-Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience; therefore, use our own indicative assumptions.
+Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience; therefore, we use our own indicative assumptions.
 
 \textbf{Other assumptions --} Other model inputs and key background system assumptions are provided in [\labelcref{sec:si_2}]. For a full list of technology assumptions, see the GitHub repository \cite{github-247CFEpaper}.
 
@@ -749,7 +754,7 @@ In particular, the profile mechanism contributes significantly to overall emissi
 
     \caption{
         System-level emission reduction: comparison of procurement policies and isolation of decarbonisation mechanisms.
-        \cref{fig:10-profile-volume.pdf} shows breakdown of emissions reduction in a local zone if 10\% of \gls{ci} load follows 24/7 hourly procurement with CFE 100\% target. The profile are volume mechanisms are isolated.
+        \cref{fig:10-profile-volume.pdf} shows breakdown of emissions reduction in a local zone if 10\% of \gls{ci} load follows 24/7 hourly procurement with CFE 100\% target. The profile and volume mechanisms are isolated.
         \cref{fig:10-hourly-annual.pdf} compares reductions in annual zone emissions in percent points achieved through 100\% annual renewable matching and 100\% 24/7 CFE matching; no procurement policy is assumed in the counterfactual scenario.}
         \label{fig:decarbonisation_story}
 
@@ -768,7 +773,7 @@ Consequently, clean electricity is not only available but can also be sold to th
 \section{Discussion}
 \label{sec:discussion}
 
-\textbf{Our results in perspective --} Our findings agree with the existing model-based studies on clean energy procurement \cite{xu-247CFE-SSRN,ieaAdvancingDecarbonisationClean2022,peninsula-report247}, as well as with the general understanding of the energy research community that \enquote{100\% renewable energy is not enough} \cite{chalendar-2019} in a context of electricity consumers claiming environmental sustainability.
+\textbf{Our results in perspective --} Our findings agree with the existing model-based studies on clean energy procurement \cite{xu-247CFE-SSRN,ieaAdvancingDecarbonisationClean2022,peninsula-report247}, as well as with the general understanding of the energy research community that \enquote{100\% renewable energy is not enough} \cite{chalendar-2019} in a context of electricity consumers claiming complete environmental sustainability.
 Specifically, we show that through hourly matching of demand with clean electricity, electricity consumers can both completely negate their carbon emissions and contribute to broader system-wide decarbonisation.
 100\% CFE matching is viable with commercially available technologies, albeit incurs a cost premium for participating consumers.
 The cost premium can be substantially reduced if the advanced technologies, such as long-duration energy storage and clean firm generators are available, or if consumers opt for participating in the 24/7~CFE procurement with quality scores ranging from 90\% to 95\% instead of an absolute 100\%.
@@ -818,7 +823,7 @@ See Xu \& Jenkins (2022) investigating this case \cite{princeton-TEACs-2022}.
 % Limitations: consumption profiles
 Third, we assume that the participating consumers have a flat demand profile (i.e. baseload).
 As a matter of fact, consumer demand profiles vary based on their business activities.
-It has been shown by Riepin~\&~Brown (2022) that the shape of consumption profiles affects the cost-optimal technology mix required for achieving a certain CFE target; however, the shape of the profile has relatively little impact on procurement costs, emissionality of the portfolio, and system-level impacts of 24/7 procurement \cite{riepin-zenodo-systemlevel247}.
+It has been shown by Riepin~\&~Brown (2022) that the shape of consumption profiles affects the cost-optimal technology mix required for achieving a certain CFE target; however, the shape of the profile has relatively little impact on procurement costs, cost-optimal portfolio of technologies, and system-level impacts of 24/7 procurement \cite{riepin-zenodo-systemlevel247}.
 
 % Limitations: a point on DSM
 Fourth, participating consumers have an inflexible demand, i.e., no demand-side management is considered.
@@ -832,7 +837,7 @@ One of the simplifications of mathematical models implementing 24/7 CFE procurem
 The \enquote{excess CFE} can be defined as the total amount of carbon-free electricity supply exceeding the demand of the participating consumers in a given period of time.
 Here we assume that the excess can either be curtailed or sold to the regional electricity market at wholesale market prices, until the excess constraint is reached.
 The constraint restricts the volume of excess electricity sold to the regional grid, ensuring it does not surpass 20\% of the annual demand from participating consumers.
-The problem with the uncostrained export of excess CFE to the regional market could be a situation where excess electricity from the renewable generators procured by 24/7 consumers displaces electricity from other renewable generators in the market, which in turn may challenge additionality of the 24/7 procurement; and if system-wide renewable expansion is constrained, the cost-optimal solution may be to use the excess clean electricity to \enquote{relax} the constraint, increasing the renewable portfolio of participating consumers.
+The problem with the unconstrained export of excess CFE to the regional market could be a situation where excess electricity from the renewable generators procured by 24/7 consumers displaces electricity from other renewable generators in the market, which in turn may challenge additionality of the 24/7 procurement; and if system-wide renewable expansion is constrained, the cost-optimal solution may be to use the excess clean electricity to \enquote{relax} the constraint, increasing the renewable portfolio of participating consumers.
 Similar \enquote{spillover effect} problem has been observed and discussed by Xu et al. (2022) \cite{xu-247CFE-SSRN}.
 In their white paper, Peninsula Clean Energy team also discuss the problems and implications of the excess supply. Citing their work: \enquote{We conclude that excess supply is a necessary aspect of a time-coincident renewable portfolio in the range of likely market conditions in California today} \cite{peninsula-report247}.
 Both studies perform sensitivity analyses on the excess supply and discuss the implications on their findings \cite{xu-247CFE-SSRN, peninsula-report247}.
@@ -845,7 +850,7 @@ This argument is based on the rationale that optimising procurement and deployme
 One of the alternative strategies could be that companies, in their pursuit to reduce system-level carbon emissions, focus on system-wide impact as measured via short-run marginal emissions accounting (\enquote{emissions matching}).
 Xu~et~al. (2023) bring this discussion from the realm of arguments into quantitative analysis, concluding that \enquote{emissions matching strategies have zero or near-zero long-run impact on system-level CO$_2$ emissions} \cite{princeton-247CFEvsEmissionality}. The reason for this, citing the authors, is that voluntary carbon-free energy procurement under this strategy almost exclusively displaces other carbon-free energy rather than fossil fuels.
 
-Another alternative strategy could be that companies do annual matching with \enquote{overprocurement}, i.e., covering their own consumption on an annual volumentric basis plus procuring some more clean electricity on top. Such strategy could be implemented at low cost, e.g., with solar PV.
+Another alternative strategy could be that companies do annual matching with \enquote{overprocurement}, i.e., covering their own consumption on an annual volumetric basis plus procuring some more clean electricity on top. Such strategy could be implemented at low cost, e.g., with solar PV.
 However, as shown in \cref{subsec:mechanisms}, this strategy would not be as effective in reducing system-level emissions as 24/7 CFE matching, especially in the context of evolving national energy and climate policies.
 Further, such a strategy would not promote innovation and pull forward in time research and investment decisions in advanced energy technologies, such as long-duration energy storage and clean firm generators.
 
