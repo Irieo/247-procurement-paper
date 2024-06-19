@@ -58,8 +58,8 @@ The wholesale market prices are derived from dual variables of a nodal energy ba
 
 % On bilinear term due to grid CFE factor
 The CFE factor of the regional grid ($CFE_t$) can be seen as the percentage of clean electricity in each MWh of imported electricity to supply demand of participating consumers in a given hour.
-To compute $CFE_t$, we consider both the hourly electricity mix in the local bidding zone and the emissionality of imported electricity from the neighbouring zones.
-The methodology to calculate the grid CFE factor is described in the prior work of the authors \cite{riepin-zenodo-systemlevel247}.
+To compute $CFE_t$, we consider both the hourly electricity mix in the local bidding zone and emission intensity of imported electricity from the neighbouring zones.
+The methodology to calculate the CFE factor of the grid is described in the prior work of the authors \cite{riepin-zenodo-systemlevel247}.
 
 Note that in equation (\ref{eqn:CFE}), $CFE_t$ is affected by additional CFE resources procured by the participating consumers.
 This introduces a nonconvex term to the optimisation problem.
@@ -89,6 +89,6 @@ The problem is solved with a temporal resolution of 2920 snapshots, representing
 
 \textbf{Technology assumptions --} Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata} for the respective years and are provided in [\cref{tab:tech_costs}].
 For the \gls{ldes}, we assume an underground hydrogen storage in salt caverns with an electolyzer and a fuel cell for hydrogen conversion.
-Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience; therefore, use our own indicative assumptions.
+Data for advanced clean firm technologies is less reliable due to technological uncertainty and lack of commercial experience; therefore, we use own indicative assumptions.
 
 \textbf{Other assumptions --} Other model inputs and key background system assumptions are provided in [\labelcref{sec:si_2}]. For a full list of technology assumptions, see the GitHub repository \cite{github-247CFEpaper}.

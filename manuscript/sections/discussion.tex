@@ -2,7 +2,7 @@
 %
 % SPDX-License-Identifier: CC-BY-4.0
 
-\textbf{Our results in perspective --} Our findings agree with the existing model-based studies on clean energy procurement \cite{xu-247CFE-SSRN,ieaAdvancingDecarbonisationClean2022,peninsula-report247}, as well as with the general understanding of the energy research community that \enquote{100\% renewable energy is not enough} \cite{chalendar-2019} in a context of electricity consumers claiming environmental sustainability.
+\textbf{Our results in perspective --} Our findings agree with the existing model-based studies on clean energy procurement \cite{xu-247CFE-SSRN,ieaAdvancingDecarbonisationClean2022,peninsula-report247}, as well as with the general understanding of the energy research community that \enquote{100\% renewable energy is not enough} \cite{chalendar-2019} in a context of electricity consumers claiming complete environmental sustainability.
 Specifically, we show that through hourly matching of demand with clean electricity, electricity consumers can both completely negate their carbon emissions and contribute to broader system-wide decarbonisation.
 100\% CFE matching is viable with commercially available technologies, albeit incurs a cost premium for participating consumers.
 The cost premium can be substantially reduced if the advanced technologies, such as long-duration energy storage and clean firm generators are available, or if consumers opt for participating in the 24/7~CFE procurement with quality scores ranging from 90\% to 95\% instead of an absolute 100\%.
@@ -52,13 +52,13 @@ See Xu \& Jenkins (2022) investigating this case \cite{princeton-TEACs-2022}.
 % Limitations: consumption profiles
 Third, we assume that the participating consumers have a flat demand profile (i.e. baseload).
 As a matter of fact, consumer demand profiles vary based on their business activities.
-It has been shown by Riepin~\&~Brown (2022) that the shape of consumption profiles affects the cost-optimal technology mix required for achieving a certain CFE target; however, the shape of the profile has relatively little impact on procurement costs, emissionality of the portfolio, and system-level impacts of 24/7 procurement \cite{riepin-zenodo-systemlevel247}.
+It has been shown by Riepin~\&~Brown (2022) that the shape of consumption profiles affects the cost-optimal technology mix required for achieving a certain CFE target; however, the shape of the profile has relatively little impact on procurement costs, cost-optimal portfolio of technologies, and system-level impacts of 24/7 procurement \cite{riepin-zenodo-systemlevel247}.
 
 % Limitations: a point on DSM
 Fourth, participating consumers have an inflexible demand, i.e., no demand-side management is considered.
 In reality, many \gls{ci} consumers have some degree of demand flexibility, which they can use to adjust their consumption as needed based on grid signals, such as the wholesale market price and the average emission rate of the local electricity mix.
 Moreover, some consumers, such as data centers and cloud computing providers, can shift their load also in space, i.e., to shift computing
-jobs and associated power loads across data center locations \cite{rosskoningsteinWeNowMore2021}.
+jobs and associated power loads across data center locations \cite{koningsteinWeNowMore2021}.
 In the recent work, Riepin~\&~Brown (2023) explore how space-time load-shifting flexibility can be used to meet high 24/7 CFE targets, as well as what potential benefits it may offer to participating energy buyers and to the rest of the energy system \cite{riepin-zenodo-spacetime247CFE}.
 
 % Excess constraint problem
@@ -66,7 +66,7 @@ One of the simplifications of mathematical models implementing 24/7 CFE procurem
 The \enquote{excess CFE} can be defined as the total amount of carbon-free electricity supply exceeding the demand of the participating consumers in a given period of time.
 Here we assume that the excess can either be curtailed or sold to the regional electricity market at wholesale market prices, until the excess constraint is reached.
 The constraint restricts the volume of excess electricity sold to the regional grid, ensuring it does not surpass 20\% of the annual demand from participating consumers.
-The problem with the uncostrained export of excess CFE to the regional market could be a situation where excess electricity from the renewable generators procured by 24/7 consumers displaces electricity from other renewable generators in the market, which in turn may challenge additionality of the 24/7 procurement; and if system-wide renewable expansion is constrained, the cost-optimal solution may be to use the excess clean electricity to \enquote{relax} the constraint, increasing the renewable portfolio of participating consumers.
+The problem with the unconstrained export of excess CFE to the regional market could be a situation where excess electricity from the renewable generators procured by 24/7 consumers displaces electricity from other renewable generators in the market, which in turn may challenge additionality of the 24/7 procurement; and if system-wide renewable expansion is constrained, the cost-optimal solution may be to use the excess clean electricity to \enquote{relax} the constraint, increasing the renewable portfolio of participating consumers.
 Similar \enquote{spillover effect} problem has been observed and discussed by Xu et al. (2022) \cite{xu-247CFE-SSRN}.
 In their white paper, Peninsula Clean Energy team also discuss the problems and implications of the excess supply. Citing their work: \enquote{We conclude that excess supply is a necessary aspect of a time-coincident renewable portfolio in the range of likely market conditions in California today} \cite{peninsula-report247}.
 Both studies perform sensitivity analyses on the excess supply and discuss the implications on their findings \cite{xu-247CFE-SSRN, peninsula-report247}.
@@ -79,7 +79,7 @@ This argument is based on the rationale that optimising procurement and deployme
 One of the alternative strategies could be that companies, in their pursuit to reduce system-level carbon emissions, focus on system-wide impact as measured via short-run marginal emissions accounting (\enquote{emissions matching}).
 Xu~et~al. (2023) bring this discussion from the realm of arguments into quantitative analysis, concluding that \enquote{emissions matching strategies have zero or near-zero long-run impact on system-level CO$_2$ emissions} \cite{princeton-247CFEvsEmissionality}. The reason for this, citing the authors, is that voluntary carbon-free energy procurement under this strategy almost exclusively displaces other carbon-free energy rather than fossil fuels.
 
-Another alternative strategy could be that companies do annual matching with \enquote{overprocurement}, i.e., covering their own consumption on an annual volumentric basis plus procuring some more clean electricity on top. Such strategy could be implemented at low cost, e.g., with solar PV.
+Another alternative strategy could be that companies do annual matching with \enquote{overprocurement}, i.e., covering their own consumption on an annual volumetric basis plus procuring some more clean electricity on top. Such strategy could be implemented at low cost, e.g., with solar PV.
 However, as shown in \cref{subsec:mechanisms}, this strategy would not be as effective in reducing system-level emissions as 24/7 CFE matching, especially in the context of evolving national energy and climate policies.
 Further, such a strategy would not promote innovation and pull forward in time research and investment decisions in advanced energy technologies, such as long-duration energy storage and clean firm generators.
 

@@ -49,7 +49,7 @@ gurobi.log
 *.glg
 *.glo
 *.gls
-
+*.ist
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
