@@ -67,3 +67,4 @@ gurobi.log
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+manuscript/manuscript.ist
