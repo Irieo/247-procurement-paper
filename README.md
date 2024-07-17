@@ -3,7 +3,7 @@
 
 This repository contains the code to reproduce the complete workflow behind the manuscript.
 
-Working paper in arXiv: [https://arxiv.org/abs/2403.07876](https://arxiv.org/abs/2403.07876)
+Working paper in arXiv: [https://arxiv.org/abs/2403.07876](https://arxiv.org/abs/2403.07876)  
 Peer-reviewed paper in Energy Strategy Reviews (open access): [https://doi.org/10.1016/j.esr.2024.101488](https://doi.org/10.1016/j.esr.2024.101488)
 
 ### Abstract
