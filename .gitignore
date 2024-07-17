@@ -50,6 +50,7 @@ gurobi.log
 *.glo
 *.gls
 *.ist
+*.spl
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -67,3 +68,4 @@ gurobi.log
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+manuscript/manuscript.ist

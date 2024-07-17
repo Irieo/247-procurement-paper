@@ -7,11 +7,13 @@ The objective of the model is to minimise the annualised system-wide costs of me
 We use a brownfield investment approach, which means that we keep the existing power generation and storage assets in the model and only optimise the capacity expansion of new assets.
 The optimal solution of the model includes the location and capacity of new power generation and storage assets, as well as the hourly dispatch of all existing and new assets, including the linear optimal power flow on the transmission network for the planning year.
 This is standard for the PyPSA-Eur model \cite{horschPyPSAEurOpenOptimisation2018} and the long-term energy planning models of this class \cite{jenkinsGenX2022, howellsOSeMOSYSOpenSource2011}.
+The mathematical formulation of the model is available in PyPSA documentation \cite{pypsadocs}.
+The code to reproduce the optimisation problem behind this analysis is available at GitHub \cite{github-247CFEpaper}.
 
 \textbf{Clean energy procurement model --} We introduce new model components (parameters, variables, constraints) into the PyPSA-Eur model to represent voluntary clean energy procurement.
 By incorporating these into the mathematical problem, we model a situation where a fraction of electricity demand in a particular bidding zone is voluntarily committed to procuring clean energy with a desired strategy.
-The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, hereinafter referred to as \enquote{participating consumers}.
-The model co-optimises procurement and operational decisions of the participating consumers to meet their electricity demand in accordance with the procurement strategy they have chosen.
+The fraction is set at 10\% of the total \gls{ci} electricity demand in a particular bidding zone, representing a hypotetical group of electricity consumers (e.g. datacentres, industrial facilities, or municipalities) committed to clean energy procurement, hereinafter referred to as \enquote{participating consumers}.
+The model seeks to find cost-optimal procurement strategy and operational decisions for the participating consumers to meet their electricity demand in accordance with the chosen clean electricity matching strategy.
 
 We model and compare two procurement strategies:
 
@@ -68,11 +70,11 @@ We find that one forward pass (i.e. 2 iterations) yields very good convergence.
 
 
 \textbf{Model scope --} Geographically, the model encompasses the entire \gls{entsoe} area, which covers the entire European electricity system.\footnote{Islands that are not connected to the main European system, such as Malta, Crete and Cyprus, are excluded from the model.}
-In this study, electricity demand, supply and power transmission infrastructure (alternating current lines at and above 220~kV voltage level and all high voltage direct current lines) are clustered to 37 individual bidding zones \cite{PyPSAEur-docs-spatialresolution}.
+In this study, electricity demand, supply and power transmission infrastructure (alternating current lines at and above 220~kV voltage level and all high voltage direct current lines) are clustered to 37 individual bidding zones \cite{PyPSAEur-docs}.
 Thus, each zone represents a country; some countries straddling different synchronous areas are split into individual bidding zones, such as DK1 (West) and DK2 (East).
 
 Participating consumers can be located in either of the four selected zones: Ireland, Denmark (zone DK1), Germany, or Poland.
-The comparison of results across these zones allows us to generalize the implications of voluntary clean energy procurement, taking into account factors such as electricity demand, weather, availability of renewable resources, existing electricity generation capacity mix, and national energy policies, among other factors.
+The comparison of results across these zones allows us to generalize the implications of voluntary clean energy procurement, taking into account individual characteristics of each zone, such as electricity demand, weather, availability of renewable resources, existing electricity generation capacity mix, and national energy policies, among other factors.
 
 We model two individual years: 2025 and 2030.
 From a modelling perspective, a five-year step changes many system parameters.
