@@ -1,0 +1,183 @@
+% SPDX-FileCopyrightText: 2023 Iegor Riepin, Tom Brown
+%
+% SPDX-License-Identifier: CC-BY-4.0
+
+\documentclass[11pt, 5p, nopreprintline]{elsarticle}
+
+\journal{TBA}
+
+\bibliographystyle{elsarticle-num}
+\biboptions{numbers,sort&compress}
+
+\hfuzz=6.002pt %https://tex.stackexchange.com/questions/13715/how-to-suppress-overfull-hbox-warnings-up-to-some-maximum
+
+% format hacks
+\usepackage{libertine}
+\usepackage{libertinust1math}
+\usepackage{amsmath}                 % Provides advanced math typesetting and environments
+\usepackage{bbold}                   % Provides blackboard bold font for numbers
+\usepackage{graphicx}                % Handles the inclusion of graphics files
+\usepackage{eurosym}                 % Provides the Euro currency symbol
+\usepackage{mathtools}               % Enhances amsmath package, adding new symbols and tools
+\usepackage{url}                     % Handles the formatting of URLs
+\usepackage{booktabs}                % Improves the quality of tables in LaTeX
+\usepackage{epstopdf}                % Automatically converts EPS files to PDF
+\usepackage{xfrac}                   % Provides a consistent way to typeset fractions
+\usepackage{tabularx}                % Enhances the standard LaTeX tables
+\usepackage{bm}                      % Provides access to bold math symbols
+\usepackage{subcaption}              % Provides support for subfigures and subtables
+\usepackage{longtable}               % Allows the creation of multi-page tables
+\usepackage{multirow}                % Enables cells spanning multiple rows in tables
+\usepackage{threeparttable}          % Provides additional functionality for tables
+\usepackage{pdflscape}               % Allows landscape pages in PDF output
+\usepackage[svgnames]{xcolor}    	 % Load xcolor packages
+\usepackage[export]{adjustbox}       % Provides tools for resizing and trimming images
+\usepackage[version=4]{mhchem}       % Provides typesetting for chemical equations
+\usepackage{xurl} 				     % Allows line breaks in URLs
+\usepackage[colorlinks]{hyperref}    % Creates hyperlinks in the document
+\usepackage[parfill]{parskip}        % Adjusts paragraph spacing
+\usepackage[nameinlink,sort&compress,capitalise,noabbrev]{cleveref} % Enhanced cross-referencing
+\usepackage[leftcaption,raggedright]{sidecap} % Provides side captions for figures and tables
+\usepackage[prependcaption,textsize=footnotesize]{todonotes} % Allows inline and margin notes
+\usepackage{siunitx}                 % Provides consistent formatting for units and numbers
+\usepackage{csquotes} 				 % For handling inline and display quotations
+
+
+\usepackage{float}
+\usepackage{lipsum}
+\usepackage{mdframed}
+\usepackage[resetlabels,labeled]{multibib} % Allows multiple bibliographies with own styles/numbering
+\newcites{S}{Supplementary References}
+\bibliographystyleS{elsarticle-num}
+
+\sisetup{
+	range-units = single,
+	per-mode = symbol
+}
+\DeclareSIUnit\year{a}
+\DeclareSIUnit{\tco}{t_{\ce{CO2}}}
+\DeclareSIUnit{\sieuro}{\mbox{\euro}}
+
+\setlength{\abovecaptionskip}{1pt} 	% Adjust the space above the caption
+\graphicspath{ 						% Allows for multiple directories
+	{../results/paper/},
+	}
+
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\set}[1]{\left\{#1\right\} }
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\newcommand{\R}{\mathbb{R} }
+\newcommand{\B}{\mathbb{B} }
+\newcommand{\N}{\mathbb{N} }
+\newcommand{\co}{\ce{CO2}}
+\def\el{${}_{\textrm{el}}$}
+\def\th{${}_{\textrm{th}}$}
+\def\deg{${}^\circ$}
+
+\newdefinition{rmk}{Remark}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{res}[thm]{Result}  % Result w/o box env
+%\newmdtheoremenv[
+%  backgroundcolor=Wheat, % Background color
+%  linewidth=0.5pt, % Width of the line around the box
+%  frametitlefont=\normalfont\bfseries, % Font for the box title
+%]{res}[thm]{Result}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% supplementary information
+
+\newpage
+
+\makeatletter
+\renewcommand \thesection{S\@arabic\c@section}
+\renewcommand\thetable{S\@arabic\c@table}
+\renewcommand \thefigure{S\@arabic\c@figure}
+\makeatother
+\renewcommand{\citenumfont}[1]{S#1}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{section}{0}
+
+\section*{Supplementary Information}
+\label{sec:si}
+
+\section{Technology assumptions}
+\label{sec:si_1}
+
+
+%S1: Technology assumptions
+Cost and other assumptions for energy technologies available for participating consumers were collected primarily from the Danish Energy Agency \cite{DEA-technologydata}. These assumptions are listed in \cref{tab:tech_costs}.
+A full list of technology assumptions, including the data for energy technologies in the background energy system, is available via the reproducible scientific workflow in the GitHub repository \cite{github-247CFEpaper}.
+
+\begin{table*}[]
+    \centering
+    \resizebox{0.95\textwidth}{!}{%
+        \begin{tabular}{lccccccc}
+            \hline\hline
+            \textbf{Technology} &
+            \textbf{Year} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}CAPEX\\ (overnight cost)\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}FOM\\ {[}\%/year{]}\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}VOM\\ {[}Eur/MWh{]}\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}Efficiency\\ {[}per unit{]}\end{tabular}} &
+            \textbf{\begin{tabular}[c]{@{}c@{}}Lifetime\\ {[}years{]}\end{tabular}} &
+            \textbf{Source} \\ \hline\hline
+            Utility solar PV & 2025 & 612 \officialeuro/kW & 1.7 & 0.01 & - & 37.5 & \cite{DEA-technologydata} \\
+            & 2030 & 492 \officialeuro/kW & 2.0 & 0.01 & - & 40.0 & \cite{DEA-technologydata}  \\ \hline
+            Onshore wind & 2025 & 1077 \officialeuro/kW & 1.2 & 0.015 & - & 28.5 & \cite{DEA-technologydata} \\
+            & 2030 & 1035 \officialeuro/kW & 1.2 & 0.015 & - & 30 & \cite{DEA-technologydata} \\ \hline
+            Battery storage & 2025 & 187 \officialeuro/kWh & - & - & - & 22.5 & \cite{DEA-technologydata}  \\
+            & 2030 & 142 \officialeuro/kWh & - & - & - & 25 & \cite{DEA-technologydata} \\ \hline
+            Battery inverter & 2025 & 215 \officialeuro/kW & 0.3 & - & 0.96 & 10 & \cite{DEA-technologydata} \\
+            & 2030 & 160 \officialeuro/kW & 0.3 & - & 0.96 & 10 & \cite{DEA-technologydata} \\ \hline
+            Hydrogen storage$^1$ & 2025 & 2.5 \officialeuro/kWh$_{\text{H}_2}$ & - & - & - & 100 & \cite{DEA-technologydata}  \\
+            & 2030 & 2.0 \officialeuro/kWh$_{\text{H}_2}$ & - & - & - & 100 & \cite{DEA-technologydata} \\ \hline
+            Hydrogen electrolysis & 2025 & 550 \officialeuro/kW$_{\text{el}}$ & 2.0 & - & 0.67 & 27.5 & \cite{DEA-technologydata} \\
+            & 2030 & 450 \officialeuro/kW$_{\text{el}}$ & 2.0 & - & 0.68 & 30 & \cite{DEA-technologydata} \\ \hline
+            Hydrogen fuel cell & 2025 & 1200 \officialeuro/kW  & 5.0 & - & 0.50 & 10.0 & \cite{DEA-technologydata} \\
+            & 2030 & 1100 \officialeuro/kW & 5.0 & - & 0.50 & 10.0 & \cite{DEA-technologydata} \\ \hline
+            Allam cycle generator$^2$ & 2025 & 2760 \officialeuro/kW  & 14.8 & 3.2 & 0.54 & 30 & \cite{navigant-report, NetZeroAmerica-report} \\
+            & 2030 & 2600 \officialeuro/kW & 14.8 & 3.2 & 0.54 & 30 & \cite{navigant-report, NetZeroAmerica-report} \\ \hline
+            Clean firm generator$^3$ & 2025 & 10000 \officialeuro/kW & 0 & 0 & 1.00 & 30.0 & [-]\\
+            & 2030 & 10000 \officialeuro/kW & 0 & 0 & 1.00 & 30.0 & [-]\\ \hline \hline
+        \end{tabular}%
+    }
+\begin{tablenotes}
+    {\footnotesize
+    \item[] Notes: All costs are in 2020 euros; $^1$assumed to be underground hydrogen storage in salt caverns; $^2$costs also include estimate of 40 \officialeuro/t\co for carbon transport and sequestration; $^3$a stand-in for clean dispatchable technologies, such as advanced geothermal or advanced nuclear systems; own indicative assumptions. \item[] CAPEX = capital expenditure; FOM = fixed operations and maintenance costs; VOM = variable operations and maintenance costs.
+    }
+\end{tablenotes}
+    \vspace{0.2cm}
+    \caption{Technology assumptions.}
+    \label{tab:tech_costs}
+\end{table*}
+
+
+\section{Background system assumptions}
+\label{sec:si_2}
+
+The model performs \textit{a perfect-foresight optimisation} of investment and power dispatch decisions to meet electricity demand of the 24/7 consumers, as well as the demand of other consumers in the European electricity system for 2025 or 2030.
+
+In all the modelled countries, renewable generation \textit{must meet the political targets} as defined in the National Energy and Climate Plans or by more recent national policy targets (such as the Easter package in Germany). In countries that not have a target for 2025, a linear increase from targets between 2020 and 2030 is assumed. The assumed renewable targets are available in the config file of the scientific workflow \cite{github-247CFEpaper}.
+
+We assume 2013 to be a representative climate year for renewable generation. The renewable feed-in profiles are computed with the atlite package \cite{atlite-github}.
+
+The country demand profiles for 2025 and 2030 are assumed to be the same as in 2013. Time-series data for electricity demand is based on the Open Power System Data project \cite{OPSD}.
+
+The existing power plant fleet data is based on the powerplantmatching package \cite{Powerplantmatching-github}. We consider national policies and decommissioning plans for coal and nuclear power plants based on data from the \enquote{beyondfossilfuels.org} and the \enquote{world-nuclear.org} projects \cite{FossilFuels, WorldNuclearAssociation}.
+
+We assume price for EU ETS allowances to be 80~\euro/t\co and 130~\euro/t\co  for 2025 and 2030, accordingly.
+The price for natural gas is assumed to be 35~\euro/MWh.
+
+% \addcontentsline{toc}{section}{Supplementary References}
+% \renewcommand{\ttdefault}{\sfdefault}
+\bibliography{paper_247CFE}
+
+\end{document}
