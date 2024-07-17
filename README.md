@@ -3,6 +3,9 @@
 
 This repository contains the code to reproduce the complete workflow behind the manuscript.
 
+Working paper in arXiv: [https://arxiv.org/abs/2403.07876](https://arxiv.org/abs/2403.07876)
+Peer-reviewed paper in Energy Strategy Reviews (open access): [https://doi.org/10.1016/j.esr.2024.101488](https://doi.org/10.1016/j.esr.2024.101488)
+
 ### Abstract
 
 > A growing number of public and private energy buyers are interested in 24/7 carbon-free energy (CFE) procurement, which means that every kilowatt-hour of electricity consumption is met by carbon-free sources at all times.
