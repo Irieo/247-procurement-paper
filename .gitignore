@@ -50,6 +50,7 @@ gurobi.log
 *.glo
 *.gls
 *.ist
+*.spl
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
